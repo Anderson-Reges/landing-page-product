@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Nav from './components/Nav';
 
-function App() {
+const App: React.FC = () => {
   return (
     <>
       <Nav />
