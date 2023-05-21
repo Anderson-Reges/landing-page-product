@@ -23,8 +23,8 @@ module.exports = {
     extend: {
       colors: {
         'primary': '#f0b500',
-        'backgroun-1': '#ffffff',
-        'background-1': '#efeef2',
+        'background-1': '#ffffff',
+        'background-2': '#efeef2',
         'background-3': '#252525',
       }
     },

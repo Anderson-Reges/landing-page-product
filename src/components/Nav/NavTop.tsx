@@ -1,17 +1,14 @@
 import React from 'react'
-import face from '../asserts/face-icon.svg'
-import insta from '../asserts/insta-icon.svg'
-import linke from '../asserts/linke-icon.svg'
-import twitter from '../asserts/twitter-icon.svg'
-import phone from '../asserts/phone-icon.svg'
-import mail from '../asserts/mail-icon.svg'
-import search from '../asserts/search-icon.svg'
-import cart from '../asserts/cart-icon.svg'
-import NavBottom from './NavBottom'
+import face from '../../asserts/face-icon.svg'
+import insta from '../../asserts/insta-icon.svg'
+import linke from '../../asserts/linke-icon.svg'
+import twitter from '../../asserts/twitter-icon.svg'
+import phone from '../../asserts/phone-icon.svg'
+import mail from '../../asserts/mail-icon.svg'
+import cart from '../../asserts/cart-icon.svg'
 
-const Nav: React.FC = () => {
+const NavTop: React.FC = () => {
     return (
-      <div>
         <div className='flex justify-around border-b desktop:h-11 mobile:h-14'>
           <ul className='flex border-r border-l desktop:w-1/5 mobile:w-1/2 desktop:h-11 mobile:h-14 items-center container gap-2 justify-evenly'>
             <li>
@@ -43,16 +40,11 @@ const Nav: React.FC = () => {
               contact@seadot.com
             </li>
             <li className='hidden desktop:flex'>
-              <img src={ search } alt="" />
-            </li>
-            <li className='hidden desktop:flex'>
               <img src={ cart } alt="" />
             </li>
           </ul>
         </div>
-        <NavBottom />
-      </div>
     )
 }
 
-export default Nav
+export default NavTop
