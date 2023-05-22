@@ -4,7 +4,7 @@ import NavTop from './NavTop';
 
 const Nav: React.FC = () => {
   return (
-    <div>
+    <div className='fixed z-50 bg-background-1 w-full'>
       <NavTop />
       <NavBottom />
     </div>

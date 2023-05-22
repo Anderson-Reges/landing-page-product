@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import menu from '../../asserts/menu-icon.svg'
 import Xicon from '../../asserts/x-icon.svg'
+import DropdownHome from './DropdownHome';
 
 const DropdownMob: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,29 +22,30 @@ const DropdownMob: React.FC = () => {
     </div>
     <div>
     {isOpen && (
-        <ul className="absolute bg-white text-gray-700 pt-1 left-[0px] top-[7.2em] w-full border-b">
-          <li>
+        <ul className="absolute bg-white text-gray-700 pt-1 left-[0px] top-[7.45em] w-full border-b border-t text-center">
+          <DropdownHome />
+          <li onClick={() => setIsOpen(false)}>
             <a
-              className="rounded-t hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+              className="hover:border-b-4 border-primary py-2 px-4 block whitespace-no-wrap font-semibold"
               href="#"
             >
-              Opção 1
+              FEATURES
             </a>
           </li>
-          <li>
+          <li onClick={() => setIsOpen(false)}>
             <a
-              className="hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+              className="hover:border-b-4 border-primary py-2 px-4 block whitespace-no-wrap font-semibold"
               href="#"
             >
-              Opção 2
+              TEACH SPECS
             </a>
           </li>
-          <li>
+          <li onClick={() => setIsOpen(false)}>
             <a
-              className="rounded-b hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+              className="hover:border-b-4 border-primary py-2 px-4 block whitespace-no-wrap font-semibold"
               href="#"
             >
-              Opção 3
+              CONTACT
             </a>
           </li>
         </ul>
