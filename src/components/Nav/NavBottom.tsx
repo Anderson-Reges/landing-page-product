@@ -1,5 +1,5 @@
 import React from 'react';
-import cart from '../../asserts/cart-icon.svg'
+import cart from '../../assets/cart-icon.svg'
 import Dropdown from '../Dropdown/Dropdown';
 import DropdownMob from '../Dropdown/DropdownMob';
 

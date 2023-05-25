@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import menu from '../../asserts/menu-icon.svg'
-import Xicon from '../../asserts/x-icon.svg'
+import menu from '../../assets/menu-icon.svg'
+import Xicon from '../../assets/x-icon.svg'
 import DropdownHome from './DropdownHome';
 
 const DropdownMob: React.FC = () => {

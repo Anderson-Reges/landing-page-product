@@ -1,11 +1,11 @@
 import React from 'react'
-import face from '../../asserts/face-icon.svg'
-import insta from '../../asserts/insta-icon.svg'
-import linke from '../../asserts/linke-icon.svg'
-import twitter from '../../asserts/twitter-icon.svg'
-import phone from '../../asserts/phone-icon.svg'
-import mail from '../../asserts/mail-icon.svg'
-import cart from '../../asserts/cart-icon.svg'
+import face from '../../assets/face-icon.svg'
+import insta from '../../assets/insta-icon.svg'
+import linke from '../../assets/linke-icon.svg'
+import twitter from '../../assets/twitter-icon.svg'
+import phone from '../../assets/phone-icon.svg'
+import mail from '../../assets/mail-icon.svg'
+import cart from '../../assets/cart-icon.svg'
 
 const NavTop: React.FC = () => {
     return (

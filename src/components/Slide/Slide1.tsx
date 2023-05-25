@@ -1,5 +1,5 @@
 import React from 'react';
-import slide1 from '../../asserts/slide-1.jpg'
+import slide1 from '../../assets/slide-1.jpg'
 
 const Slide1: React.FC = () => {
   return (
