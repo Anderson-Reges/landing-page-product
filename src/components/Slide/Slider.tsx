@@ -1,24 +1,22 @@
 import React from 'react';
 import Slide1 from './Slide1';
+import Slide2 from './Slide2';
+import { SlideContext } from '../../context/SlideProvider';
 
 const Slider: React.FC = () => {
+  const { slide } = React.useContext(SlideContext)
+  console.log(slide)
   return (
-    <div className='z-0'>
-      <Slide1 />
-      <a href="#">
-        <button className='absolute top-[28em] ml-16 bg-background-1 w-52 h-11 justify-center items-center rounded-3xl font-semibold text-primary transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110'>
-          PURCHASE SEADOT
-        </button>
-        <label>
-          <input type="radio" className='absolute form-radio top-[34em] ml-16 form-radio bg-orange-500' name='slide'
-          />
-        </label>
-        <label>
-          <input type="radio" className='absolute top-[34em] ml-[5.2em]'
-            name='slide'
-          />
-        </label>
-      </a>
+    <div className=''>
+      <div className='relative h-[6.6em]'>
+        <Slide1 
+          onSlide={ slide.slide1 }
+        />
+        <Slide2
+          onSlide={ slide.slide2 }
+        />
+      </div>
+      
     </div>
   );
 };
