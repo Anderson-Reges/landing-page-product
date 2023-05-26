@@ -4,7 +4,10 @@ import IOnSlide from '../../interfaces/IOnSlide';
 
 const Slide2: React.FC<IOnSlide> = ({ onSlide }) => {
   return (
-    <div className='relative bottom-[388px]'>
+    <div className={
+      `relative top-[6.7em]`
+      }
+    >
       <div
         className="bg-cover bg-no-repeat bg-center h-[496px]"
         style={{ backgroundImage: `url(${slide2})` }}

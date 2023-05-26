@@ -1,11 +1,17 @@
 version: '3.9'
 services:
   app:
+    container_name: app_landing-page-product
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - '3000:3000'
-    volumes:
+      - 3000:3000
+    platform: linux/x86_64
+    working_dir: /app
+    volumes: 
       - .:/app
-      - /app/node_modules
+    healthcheck:
+      test: ["CMD", "lsof", "-t", "-i:3000"]
+      timeout: 10s
+      retries: 5

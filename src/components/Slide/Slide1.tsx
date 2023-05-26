@@ -6,8 +6,7 @@ const Slide1: React.FC<IOnSlide> = ({ onSlide }) => {
   return (
     <div
       className={
-        `relative top-[6.7em]
-        ${onSlide ? '' : 'transition-all right-0'}`
+        `relative top-[6.7em]`
       }
     >
       <div
