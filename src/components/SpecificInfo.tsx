@@ -1,5 +1,5 @@
 import React from 'react';
-import woman from '../../assets/woman.jpeg'
+import woman from '../assets/woman.jpeg'
 
 const SpecificInfo: React.FC = () => {
   return (
