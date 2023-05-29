@@ -28,13 +28,12 @@ const Slider: React.FC = () => {
   }, []);
 
   return (
-    <div>
-      <div className='relative h-[6.6em] transition-all duration-200'>
+      <div className='h-[604px]'>
         {slide.slide1 && (
           <Slide1
             containerClassName={
               `absolute transition-opacity ${
-              slide.slide1 ? 'opacity-100 animate-fadeIn' : 'opacity-0 animate-fadeOut'
+              slide.slide1 ? 'animate-fadeIn' : 'animate-fadeOut'
             }`}
           />
         )}
@@ -42,16 +41,14 @@ const Slider: React.FC = () => {
           <Slide2
             containerClassName={
               `absolute transition-opacity ${
-              slide.slide2 ? 'opacity-100 animate-fadeIn' : 'opacity-0 animate-fadeOut'
+              slide.slide2 ? 'animate-fadeIn' : 'animate-fadeOut'
             }`}
           />
         )}
-      </div>
-      <div className='absolute'>
         <a href="#">
           <button
             className='
-            absolute top-[21em] ml-16 bg-background-1 
+            absolute top-[27em] ml-16 bg-background-1 
             w-52 h-11 justify-center items-center rounded-3xl 
             font-semibold text-primary transition ease-in-out 
             delay-150 hover:-translate-y-1 hover:scale-110'
@@ -62,7 +59,7 @@ const Slider: React.FC = () => {
         <label>
           <input
             type="radio" 
-            className='absolute form-radio top-[26em] 
+            className='absolute form-radio
             ml-16 checked:bg-background-3 text-background-3
             focus:ring-transparent focus:ring-offset-0 border-none
             cursor-pointer'
@@ -75,7 +72,7 @@ const Slider: React.FC = () => {
         <label>
           <input
             type="radio"
-            className='absolute top-[26em] ml-[5.2em]
+            className='absolute ml-[5.2em]
             checked:bg-background-3 text-background-3 focus:ring-0
             border-none focus:ring-offset-0 cursor-pointer'
             name='slide'
@@ -85,7 +82,6 @@ const Slider: React.FC = () => {
           />
         </label>
       </div>
-    </div>
   );
 };
 
