@@ -22,11 +22,17 @@ const DropdownMob: React.FC = () => {
     </div>
     <div>
     {isOpen && (
-        <ul className="absolute bg-white text-gray-700 pt-1 left-[0px] top-[7.45em] w-full border-b border-t text-center">
+        <ul
+          className="
+          absolute bg-white text-gray-700 pt-1 left-[0px]
+          top-[7.45em] w-full border-b border-t text-center"
+        >
           <DropdownHome />
           <li onClick={() => setIsOpen(false)}>
             <a
-              className="hover:border-b-4 border-primary py-2 px-4 block whitespace-no-wrap font-semibold"
+              className="
+              hover:border-b-4 border-primary py-2 px-4
+              block whitespace-no-wrap font-semibold"
               href="#"
             >
               FEATURES
@@ -34,7 +40,9 @@ const DropdownMob: React.FC = () => {
           </li>
           <li onClick={() => setIsOpen(false)}>
             <a
-              className="hover:border-b-4 border-primary py-2 px-4 block whitespace-no-wrap font-semibold"
+              className="
+              hover:border-b-4 border-primary py-2 px-4 block
+              whitespace-no-wrap font-semibold"
               href="#"
             >
               TEACH SPECS
@@ -42,7 +50,9 @@ const DropdownMob: React.FC = () => {
           </li>
           <li onClick={() => setIsOpen(false)}>
             <a
-              className="hover:border-b-4 border-primary py-2 px-4 block whitespace-no-wrap font-semibold"
+              className="
+              hover:border-b-4 border-primary py-2 px-4 block
+              whitespace-no-wrap font-semibold"
               href="#"
             >
               CONTACT

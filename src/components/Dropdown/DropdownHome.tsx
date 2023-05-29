@@ -11,7 +11,9 @@ const DropdownHome: React.FC = () => {
     <>
     <div className="relative">
       <button
-        className="font-semibold py-2 px-4 rounded inline-flex items-center desktop:hidden w-full justify-center"
+        className="
+        font-semibold py-2 px-4 rounded inline-flex
+        items-center desktop:hidden w-full justify-center"
         onClick={toggleDropdown}
       >
         <span>HOME</span>
@@ -26,7 +28,10 @@ const DropdownHome: React.FC = () => {
     </div>
     <div>
     {isOpen && (
-        <ul className=" bg-white text-gray-700 pt-1 w-full border-b border-t text-center">
+        <ul
+          className="
+          bg-white text-gray-700 pt-1 w-full
+          border-b border-t text-center">
           <li>
             <a
               className="hover:border-b-4 border-primary py-2 px-4 block whitespace-no-wrap"

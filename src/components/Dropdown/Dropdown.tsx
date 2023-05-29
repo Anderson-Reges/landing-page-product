@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 
 const Dropdown: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const menuRef = useRef<HTMLUListElement>(null);
+  const [isOpen, setIsOpen] = React.useState(false);
+  const dropdownRef = React.useRef<HTMLDivElement>(null);
+  const menuRef = React.useRef<HTMLUListElement>(null);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -19,7 +19,7 @@ const Dropdown: React.FC = () => {
     setIsOpen(false);
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     document.addEventListener('mousedown', handleOutsideClick)
 
     return () => {
@@ -30,7 +30,9 @@ const Dropdown: React.FC = () => {
   return (
     <div className="relative inline-block" ref={dropdownRef}>
       <button
-        className="text-background-3 mobile:hidden font-semibold inline-flex items-center desktop:flex"
+        className="
+        text-background-3 mobile:hidden font-semibold
+        inline-flex items-center desktop:flex"
         onClick={toggleDropdown}
       >
         <span>HOME</span>
@@ -43,7 +45,10 @@ const Dropdown: React.FC = () => {
         </svg>
       </button>
       {isOpen && (
-        <ul className="absolute bg-white text-gray-700 pt-1" ref={menuRef} onMouseLeave={handleMenuMouseLeave}>
+        <ul
+          className="absolute bg-white text-gray-700 pt-1"
+          ref={menuRef}
+          onMouseLeave={handleMenuMouseLeave}>
           <li>
             <a
               className="rounded-t hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
