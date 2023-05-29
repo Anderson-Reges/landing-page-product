@@ -15,7 +15,7 @@ const Slider: React.FC = () => {
   };
 
   React.useEffect(() => {
-    const timer = window.setInterval(() => {
+    const timer = setInterval(() => {
       setSlide((prevState) => ({
         slide1: !prevState.slide1,
         slide2: !prevState.slide2
@@ -23,15 +23,29 @@ const Slider: React.FC = () => {
     }, 10000);
 
     return () => {
-      window.clearInterval(timer);
+      clearInterval(timer);
     };
   }, []);
 
   return (
     <div>
-      <div className='relative h-[6.6em]'>
-        {slide.slide1 && <Slide1 onSlide={ slide.slide1 } />}
-        {slide.slide2 && <Slide2 onSlide={ slide.slide2 } />}
+      <div className='relative h-[6.6em] transition-all duration-200'>
+        {slide.slide1 && (
+          <Slide1
+            containerClassName={
+              `absolute transition-opacity ${
+              slide.slide1 ? 'opacity-100 animate-fadeIn' : 'opacity-0 animate-fadeOut'
+            }`}
+          />
+        )}
+        {slide.slide2 && (
+          <Slide2
+            containerClassName={
+              `absolute transition-opacity ${
+              slide.slide2 ? 'opacity-100 animate-fadeIn' : 'opacity-0 animate-fadeOut'
+            }`}
+          />
+        )}
       </div>
       <div className='absolute'>
         <a href="#">
@@ -50,7 +64,8 @@ const Slider: React.FC = () => {
             type="radio" 
             className='absolute form-radio top-[26em] 
             ml-16 checked:bg-background-3 text-background-3
-            focus:ring-transparent focus:ring-offset-0 border-none'
+            focus:ring-transparent focus:ring-offset-0 border-none
+            cursor-pointer'
             name='slide'
             checked={ slide.slide1 }
             id='slide1'
@@ -62,7 +77,7 @@ const Slider: React.FC = () => {
             type="radio"
             className='absolute top-[26em] ml-[5.2em]
             checked:bg-background-3 text-background-3 focus:ring-0
-            border-none focus:ring-offset-0'
+            border-none focus:ring-offset-0 cursor-pointer'
             name='slide'
             checked={ slide.slide2 }
             id='slide2'

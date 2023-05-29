@@ -1,12 +1,12 @@
 import React from 'react';
 import slide1 from '../../assets/slide-1.jpg'
-import IOnSlide from '../../interfaces/IOnSlide';
+import IClassNameSlide from '../../interfaces/IClassnameSlide';
 
-const Slide1: React.FC<IOnSlide> = ({ onSlide }) => {
+const Slide1: React.FC<IClassNameSlide> = ({ containerClassName }) => {
   return (
     <div
       className={
-        `relative top-[6.7em]`
+        `relative top-[6.7em] ${containerClassName}`
       }
     >
       <div
