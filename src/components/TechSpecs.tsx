@@ -4,7 +4,7 @@ const TechSpecs: React.FC = () => {
   return (
     <div className='
       flex flex-col justify-center items-center
-      py-20 px-20 gap-[2em] bg-background-2'
+      py-20 gap-[2em] bg-background-2'
     >
       <div className='flex flex-col justify-center items-center gap-[1em]'>
         <h1
@@ -20,7 +20,7 @@ const TechSpecs: React.FC = () => {
           you need to know to stand out from the ordinary.
         </p>
       </div>
-      <div className='flex justify-evenly w-screen'>
+      <div className='flex justify-evenly w-full'>
         <div>
           <h4 className='font-semibold'>General</h4>
           <p className='w-[10em]'>

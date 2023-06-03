@@ -3,7 +3,6 @@ import React from 'react';
 const Dropdown: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const dropdownRef = React.useRef<HTMLDivElement>(null);
-  const menuRef = React.useRef<HTMLUListElement>(null);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -47,7 +46,6 @@ const Dropdown: React.FC = () => {
       {isOpen && (
         <ul
           className="absolute bg-white text-gray-700 pt-1"
-          ref={menuRef}
           onMouseLeave={handleMenuMouseLeave}>
           <li>
             <a
