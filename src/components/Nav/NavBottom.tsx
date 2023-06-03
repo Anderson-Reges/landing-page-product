@@ -5,7 +5,7 @@ import DropdownMob from '../Dropdown/DropdownMob';
 
 const NavBottom: React.FC = () => {
   return (
-    <div className='flex justify-evenly border-b h-16 items-center'>
+    <nav className='flex justify-evenly border-b h-16 items-center'>
       <h1 className='w-60 font-bold text-4xl mobile:text-3xl text-center'>SEA DOT</h1>
       <Dropdown />
       <a href="#" className='
@@ -36,7 +36,7 @@ const NavBottom: React.FC = () => {
           <img src={ cart } alt="" className='block desktop:hidden w-6' />
       </a>
       <DropdownMob />
-    </div>
+    </nav>
   );
 }
 

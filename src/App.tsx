@@ -4,16 +4,24 @@ import Slider from './components/Slide/Slider';
 import Features from './components/Features/Features';
 import SpecificInfo from './components/SpecificInfo';
 import TechSpecs from './components/TechSpecs';
+import Merchandising from './components/Merchandising';
 
 const App: React.FC = () => {
   return (
-    <div>
+    <>
       <Nav />
-      <Slider />
-      <Features />
-      <SpecificInfo />
-      <TechSpecs />
-    </div>
+      <header>
+        <Slider />
+      </header>
+      <main>
+        <Features />
+        <SpecificInfo />
+        <TechSpecs />
+      </main>
+      <aside>
+        <Merchandising />
+      </aside>
+    </>
   );
 }
 
