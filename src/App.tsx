@@ -5,6 +5,7 @@ import Features from './components/Features/Features';
 import SpecificInfo from './components/SpecificInfo';
 import TechSpecs from './components/TechSpecs';
 import Merchandising from './components/Merchandising';
+import LastUpdates from './components/LastUpdates';
 
 const App: React.FC = () => {
   return (
@@ -20,6 +21,7 @@ const App: React.FC = () => {
       </main>
       <aside>
         <Merchandising />
+        <LastUpdates />
       </aside>
     </>
   );
