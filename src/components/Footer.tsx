@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
 
   return (
     <div className="h-[400px] bg-background-3 text-background-1">
-      <div className="flex w-full h-[85%] items-center py-[2em] px-[5em]">
+      <div className="flex desktop:flex-row w-full h-[85%] items-center py-[2em] px-[5em] mobile:flex-col">
         <div className="flex flex-col gap-[2em] w-[33%]">
           <h3 className="text-4xl font-bold">SEA DOT</h3>
           <p className="w-[80%]">

@@ -4,7 +4,7 @@ const Merchandising: React.FC = () => {
   return (
     <div className='flex h-60 flex-col justify-center items-center gap-[1em]'>
       <h1
-        className='font-bold text-3xl w-[19em] text-center'
+        className='font-bold text-3xl desktop:w-[19em] mobile:w-[10em] text-center'
       >
         FREE SHIPPING WITH EVERY PURCHASE.
         TAKE ADVANTAGE OF OUR OFFERS.

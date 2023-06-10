@@ -48,7 +48,7 @@ const Slider: React.FC = () => {
         <a href="#">
           <button
             className='
-            absolute top-[27em] desktop:ml-16 mobile:ml-8 bg-background-1 
+            absolute top-[27em] desktop:ml-16 mobile:ml-3 bg-background-1 
             w-52 h-11 justify-center items-center rounded-3xl 
             font-semibold text-primary transition ease-in-out 
             delay-150 hover:-translate-y-1 hover:scale-110

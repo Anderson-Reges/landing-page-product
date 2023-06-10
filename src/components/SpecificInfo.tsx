@@ -42,7 +42,7 @@ const SpecificInfo: React.FC = () => {
               desktop:bg-transparent mobile:bg-background-1 mobile:rounded-2xl mobile:pl-[2em]
               mobile:py-[1em]'
             >
-              <h2 className='flex text-8xl'>
+              <h2 className='flex text-7xl'>
                 30<p className='text-primary'>min</p>
               </h2>
               <h4 className='text-2xl font-semibold'>Rapid Charge</h4>

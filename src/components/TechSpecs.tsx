@@ -15,12 +15,12 @@ const TechSpecs: React.FC = () => {
         <span
           className='w-52 h-3 bg-primary rounded-xl'
         ></span>
-        <p className='w-[25em] text-center'>
+        <p className='w-[20em] text-center'>
           Get all the technical specifications right here. Everything
           you need to know to stand out from the ordinary.
         </p>
       </div>
-      <div className='flex justify-evenly w-full'>
+      <div className='flex desktop:flex-row mobile:flex-col justify-evenly w-full'>
         <div>
           <h4 className='font-semibold'>General</h4>
           <p className='w-[10em]'>
