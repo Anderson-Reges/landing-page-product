@@ -5,7 +5,7 @@ const LastUpdates: React.FC = () => {
   return (
     <div>
       <div
-        className='h-[410px] bg-no-repeat flex justify-center items-center gap-[2em]'
+        className='h-[410px] bg-no-repeat bg-cover flex justify-center items-center gap-[2em]'
         style={{ backgroundImage: `url(${headset2})` }}
       >
         <h1
