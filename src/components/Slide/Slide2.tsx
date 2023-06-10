@@ -12,8 +12,14 @@ const Slide2: React.FC<IClassNameSlide> = ({ containerClassName }) => {
         className="bg-cover bg-no-repeat bg-center h-[496px]"
         style={{ backgroundImage: `url(${slide2})` }}
       ></div>
-      <h1 className='absolute text-6xl top-[1.2em] ml-16 w-[620px] font-bold text-background-1'>
-      THE BEST AUDIO QUALITY AND LOADED WITH THE LATEST TECH
+      <h1
+        className='
+        absolute desktop:text-6xl mobile:text-4xl
+        desktop:top-[1.2em] mobile:top-[3.5em]
+        desktop:ml-16 mobile:ml-8 desktop:w-[620px]
+        mobile:w-[390px] font-bold text-background-1'
+      >
+        THE BEST AUDIO QUALITY AND LOADED WITH THE LATEST TECH
       </h1>
     </div>
   );

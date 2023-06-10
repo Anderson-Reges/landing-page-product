@@ -48,10 +48,11 @@ const Slider: React.FC = () => {
         <a href="#">
           <button
             className='
-            absolute top-[27em] ml-16 bg-background-1 
+            absolute top-[27em] desktop:ml-16 mobile:ml-8 bg-background-1 
             w-52 h-11 justify-center items-center rounded-3xl 
             font-semibold text-primary transition ease-in-out 
-            delay-150 hover:-translate-y-1 hover:scale-110'
+            delay-150 hover:-translate-y-1 hover:scale-110
+            mobile:tracking-widest'
           >
             PURCHASE SEADOT
           </button>
@@ -62,7 +63,7 @@ const Slider: React.FC = () => {
             className='absolute form-radio
             ml-16 checked:bg-background-3 text-background-3
             focus:ring-transparent focus:ring-offset-0 border-none
-            cursor-pointer'
+            cursor-pointer mobile:hidden'
             name='slide'
             checked={ slide.slide1 }
             id='slide1'
@@ -74,7 +75,7 @@ const Slider: React.FC = () => {
             type="radio"
             className='absolute ml-[5.2em]
             checked:bg-background-3 text-background-3 focus:ring-0
-            border-none focus:ring-offset-0 cursor-pointer'
+            border-none focus:ring-offset-0 cursor-pointer mobile:hidden'
             name='slide'
             checked={ slide.slide2 }
             id='slide2'

@@ -15,8 +15,8 @@ const Slide1: React.FC<IClassNameSlide> = ({ containerClassName }) => {
       ></div>
       <h1
         className='
-        absolute text-6xl top-1/4
-        ml-16 w-[600px] font-bold
+        absolute desktop:text-6xl mobile:text-4xl top-1/4
+        desktop:ml-16 mobile:ml-8 desktop:w-[600px] mobile:w-[375px] font-bold
         text-background-3'
       >
         HIGH PERFORMANCE AND PREMIUM DESIGN
