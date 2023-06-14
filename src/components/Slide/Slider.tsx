@@ -14,18 +14,18 @@ const Slider: React.FC = () => {
     }
   };
 
-  // React.useEffect(() => {
-  //   const timer = setInterval(() => {
-  //     setSlide((prevState) => ({
-  //       slide1: !prevState.slide1,
-  //       slide2: !prevState.slide2
-  //     }));
-  //   }, 10000);
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setSlide((prevState) => ({
+        slide1: !prevState.slide1,
+        slide2: !prevState.slide2
+      }));
+    }, 10000);
 
-  //   return () => {
-  //     clearInterval(timer);
-  //   };
-  // }, []);
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
 
   return (
       <div className='h-[604px]'>
