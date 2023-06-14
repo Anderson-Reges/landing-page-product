@@ -7,9 +7,15 @@ const Footer: React.FC = () => {
   const icons: IconSVG[] = iconsSVG;
 
   return (
-    <div className="h-[400px] bg-background-3 text-background-1">
-      <div className="flex desktop:flex-row w-full h-[85%] items-center py-[2em] px-[5em] mobile:flex-col">
-        <div className="flex flex-col gap-[2em] w-[33%]">
+    <div className="h-full bg-background-3 text-background-1">
+      <div
+        className="
+        flex desktop:flex-row w-full h-[85%]
+        mobile:items-baseline desktop:items-center py-[2em]
+        desktop:px-[5em] mobile:px-[2em]
+        mobile:flex-col mobile:gap-[2em] desktop:gap-0"
+      >
+        <div className="flex flex-col gap-[2em] desktop:w-[33%]">
           <h3 className="text-4xl font-bold">SEA DOT</h3>
           <p className="w-[80%]">
             Orem Ipsum is simply dumm text the printing and types indstr sum has
@@ -31,14 +37,14 @@ const Footer: React.FC = () => {
             ))}
           </ul>
         </div>
-        <ul className="flex flex-col gap-4 w-[33%]">
+        <ul className="flex flex-col gap-4 desktop:w-[33%]">
           <li className="font-bold">Useful Links</li>
           <li className="font-light">Contact Us</li>
           <li className="font-light">Privacy</li>
           <li className="font-light">Advertise</li>
           <li className="font-light">Terms & Conditions</li>
         </ul>
-        <form className="flex flex-col w-[33%] gap-[1em]">
+        <form className="flex flex-col desktop:w-[33%] gap-[1em]">
           <h3 className="font-bold text-xl">Send us a Message</h3>
           <input
             type="text"

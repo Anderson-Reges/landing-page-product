@@ -16,8 +16,8 @@ const Slide2: React.FC<IClassNameSlide> = ({ containerClassName }) => {
         className='
         absolute desktop:text-6xl mobile:text-4xl
         desktop:top-[1.2em] mobile:top-[3.0em]
-        desktop:ml-16 mobile:px-[0.4em] desktop:w-[620px]
-        mobile:w-[330px] font-bold text-background-1'
+        desktop:ml-16 desktop:w-[620px]
+        mobile:w-[300px] font-bold text-background-1'
       >
         THE BEST AUDIO QUALITY AND LOADED WITH THE LATEST TECH
       </h1>

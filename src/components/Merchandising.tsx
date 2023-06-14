@@ -21,7 +21,7 @@ const Merchandising: React.FC = () => {
       <div
           className="
           flex bg-center bg-cover
-          h-[496px] w-[380px] desktop:hidden"
+          h-[496px] w-[320px] desktop:hidden"
           style={{ backgroundImage: `url(${headset})` }}
       ></div>
       <a href="#">
