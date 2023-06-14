@@ -37,7 +37,10 @@ const Footer: React.FC = () => {
             ))}
           </ul>
         </div>
-        <ul className="flex flex-col gap-4 desktop:w-[33%]">
+        <ul
+          id="contact"
+          className="flex flex-col gap-4 desktop:w-[33%]"
+        >
           <li className="font-bold">Useful Links</li>
           <li className="font-light">Contact Us</li>
           <li className="font-light">Privacy</li>

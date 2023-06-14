@@ -8,19 +8,19 @@ const NavBottom: React.FC = () => {
     <nav className='flex justify-evenly border-b h-16 items-center'>
       <h1 className='w-60 font-bold text-4xl mobile:text-3xl text-center'>SEA DOT</h1>
       <Dropdown />
-      <a href="#" className='
+      <a href="#features" className='
       hidden text-background-3 font-semibold rounded
       inline-flex items-center desktop:flex'
       >
           FEATURES
       </a>
-      <a href="#" className='
+      <a href="#tech" className='
       hidden text-background-3 font-semibold rounded
       inline-flex items-center desktop:flex'
       >
           TECH SPECS
       </a>
-      <a href="#" className='
+      <a href="#contact" className='
       hidden text-background-3 font-semibold rounded
       inline-flex items-center desktop:flex'
       >
