@@ -3,7 +3,7 @@ import woman from '../assets/woman.jpeg'
 
 const SpecificInfo: React.FC = () => {
   return (
-    <div className='relative desktop:h-[678px] mobile:h-[53em]'>
+    <div className='relative desktop:h-[678px] mobile:h-[50em]'>
       <div
         className='mobile:bg-left desktop:bg-center bg-cover w-full h-full'
         style={{ backgroundImage: `url(${woman})` }}
@@ -16,8 +16,8 @@ const SpecificInfo: React.FC = () => {
         >
           <h1
             className='
-            desktop:text-5xl mobile:text-4xl text-background-3
-            font-bold'
+            desktop:text-5xl mobile:text-2xl text-background-3
+            font-extrabold'
           >
             DISCOVER THE TECHNOLOGY AND EXPERIENCE THAT GOES INTO OUR PRODUCTS
           </h1>
@@ -29,21 +29,21 @@ const SpecificInfo: React.FC = () => {
             <div
               className='
               desktop:bg-transparent mobile:bg-background-1 mobile:rounded-2xl
-              mobile:pl-[2em] mobile:py-[1em]'
+              mobile:px-[1.5em] mobile:py-[1em]'
             >
-              <h2 className='flex text-8xl'>
-                40<p className='text-primary'>h</p>
+              <h2 className='flex desktop:text-8xl mobile:text-7xl mobile:items-baseline'>
+                40<p className='text-primary desktop:text-8xl mobile:text-6xl'>h</p>
               </h2>
               <h4 className='text-2xl font-semibold'>Battery Life</h4>
               <p className='w-40'>Battery with longevity and duration of 40 hours</p>
             </div>
             <div
               className='
-              desktop:bg-transparent mobile:bg-background-1 mobile:rounded-2xl mobile:pl-[2em]
+              desktop:bg-transparent mobile:bg-background-1 mobile:rounded-2xl mobile:px-[1.5em]
               mobile:py-[1em]'
             >
-              <h2 className='flex text-7xl'>
-                30<p className='text-primary'>min</p>
+              <h2 className='flex desktop:text-8xl mobile:text-7xl mobile:items-baseline'>
+                30<p className='text-primary mobile:text-6xl desktop:text-8xl'>min</p>
               </h2>
               <h4 className='text-2xl font-semibold'>Rapid Charge</h4>
               <p
