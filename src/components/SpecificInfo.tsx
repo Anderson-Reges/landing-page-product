@@ -3,28 +3,47 @@ import woman from '../assets/woman.jpeg'
 
 const SpecificInfo: React.FC = () => {
   return (
-    <div className='relative h-[678px]'>
+    <div className='relative desktop:h-[678px] mobile:h-[50em]'>
       <div
-        className='bg-center bg-cover w-full h-full'
+        className='mobile:bg-left desktop:bg-center bg-cover w-full h-full'
         style={{ backgroundImage: `url(${woman})` }}
       >
-        <div className='absolute flex flex-col w-1/2 h-1/3 right-10 top-36 gap-[2em]'>
+        <div
+          className='
+          absolute flex flex-col desktop:w-1/2 mobile:w-screen h-1/3
+          desktop:right-10 desktop:top-36 gap-[2em] mobile:px-[3em]
+          mobile:pt-[3em] desktop:px-0 desktop:pt-0'
+        >
           <h1
-            className='text-5xl text-background-3 font-bold'
+            className='
+            desktop:text-5xl mobile:text-2xl text-background-3
+            font-extrabold'
           >
             DISCOVER THE TECHNOLOGY AND EXPERIENCE THAT GOES INTO OUR PRODUCTS
           </h1>
-          <div className='flex gap-[9em]'>
-            <div>
-              <h2 className='flex text-8xl'>
-                40<p className='text-primary'>h</p>
+          <div
+            className='
+            flex desktop:flex-row desktop:gap-[9em]
+            mobile:gap-[2em] mobile:flex-col'
+          >
+            <div
+              className='
+              desktop:bg-transparent mobile:bg-background-1 mobile:rounded-2xl
+              mobile:px-[1.5em] mobile:py-[1em]'
+            >
+              <h2 className='flex desktop:text-8xl mobile:text-7xl mobile:items-baseline'>
+                40<p className='text-primary desktop:text-8xl mobile:text-6xl'>h</p>
               </h2>
               <h4 className='text-2xl font-semibold'>Battery Life</h4>
               <p className='w-40'>Battery with longevity and duration of 40 hours</p>
             </div>
-            <div>
-              <h2 className='flex text-8xl'>
-                30<p className='text-primary'>min</p>
+            <div
+              className='
+              desktop:bg-transparent mobile:bg-background-1 mobile:rounded-2xl mobile:px-[1.5em]
+              mobile:py-[1em]'
+            >
+              <h2 className='flex desktop:text-8xl mobile:text-7xl mobile:items-baseline'>
+                30<p className='text-primary mobile:text-6xl desktop:text-8xl'>min</p>
               </h2>
               <h4 className='text-2xl font-semibold'>Rapid Charge</h4>
               <p

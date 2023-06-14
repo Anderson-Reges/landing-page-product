@@ -15,15 +15,20 @@ const TechSpecs: React.FC = () => {
         <span
           className='w-52 h-3 bg-primary rounded-xl'
         ></span>
-        <p className='w-[25em] text-center'>
+        <p className='w-[18em] text-center'>
           Get all the technical specifications right here. Everything
           you need to know to stand out from the ordinary.
         </p>
       </div>
-      <div className='flex justify-evenly w-full'>
+      <div
+        className='
+        flex desktop:flex-row mobile:flex-col
+        justify-evenly w-full desktop:items-baseline
+        mobile:items-center desktop:gap-0 mobile:gap-[2em]'
+      >
         <div>
           <h4 className='font-semibold'>General</h4>
-          <p className='w-[10em]'>
+          <p className='desktop:w-[10em] mobile:w-[10em]'>
             Model: 
             Seadot Arcdov
             Driver (mm):
@@ -34,7 +39,7 @@ const TechSpecs: React.FC = () => {
         </div>
         <div>
           <h4 className='font-semibold'>Battery</h4>
-          <p className='w-[6em]'>
+          <p className='desktop:w-[6em] mobile:w-[10em]'>
             loading time (min):
             30
             Max game time (horas):
@@ -43,7 +48,7 @@ const TechSpecs: React.FC = () => {
         </div>
         <div>
           <h4 className='font-semibold'>Audio specification</h4>
-          <p className='w-[10em]'>
+          <p className='desktop:w-[10em] mobile:w-[10em]'>
             Driver Sensitivity at 1kHz1mW (dB):
             103.5
             Dynamic Frequency Response:
@@ -54,7 +59,7 @@ const TechSpecs: React.FC = () => {
         </div>
         <div>
           <h4 className='font-semibold'>Control and connection</h4>
-          <p className='w-[15em]'>
+          <p className='desktop:w-[15em] mobile:w-[10em]'>
             Bluetooth Version:
             5.0
             bluetooth profiles:
