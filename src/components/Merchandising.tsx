@@ -31,7 +31,7 @@ const Merchandising: React.FC = () => {
         w-52 h-11 rounded-3xl 
         font-semibold text-background-1 transition ease-in-out 
         delay-150 hover:-translate-y-1 hover:scale-110"
-        onClick={() => navigate("/checkout")}
+        onClick={() => navigate("/cart")}
       >
         PURCHASE SEADOT
       </button>

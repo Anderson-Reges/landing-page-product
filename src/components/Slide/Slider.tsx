@@ -53,7 +53,7 @@ const Slider: React.FC = () => {
             font-semibold text-primary transition ease-in-out 
             delay-150 hover:-translate-y-1 hover:scale-110
             mobile:tracking-widest"
-        onClick={() => navigate("/checkout")}
+        onClick={() => navigate("/cart")}
       >
         PURCHASE SEADOT
       </button>
