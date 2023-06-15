@@ -5,9 +5,11 @@ import cart from "../../assets/cart-icon.svg";
 import SVGComponent from "../SVGComponent";
 import iconsSVG from "../../assets/network-icons-svg.json";
 import IconSVG from "../../interfaces/ISvg";
+import { useNavigate } from "react-router-dom";
 
 const NavTop: React.FC = () => {
   const icons: IconSVG[] = iconsSVG;
+  const navigate = useNavigate()
 
   return (
     <div className="flex justify-around border-b desktop:h-11 mobile:h-14">
@@ -42,7 +44,12 @@ const NavTop: React.FC = () => {
           contact@seadot.com
         </li>
         <li className="hidden desktop:flex">
-          <img src={cart} alt="" />
+          <img
+            src={cart}
+            alt="" 
+            onClick={ () => navigate("/cart") }
+            className="cursor-pointer"
+          />
         </li>
       </ul>
     </div>

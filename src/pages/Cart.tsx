@@ -2,7 +2,7 @@ import React from "react";
 import Nav from "../components/Nav/Nav";
 import Footer from "../components/Footer";
 
-const Checkout: React.FC = () => {
+const Cart: React.FC = () => {
   return (
     <>
       <Nav />
@@ -13,4 +13,4 @@ const Checkout: React.FC = () => {
   );
 };
 
-export default Checkout;
+export default Cart;

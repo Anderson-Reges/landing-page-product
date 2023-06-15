@@ -8,10 +8,12 @@ const NavBottom: React.FC = () => {
   const navigate = useNavigate()
 
   return (
-    <nav className="flex justify-evenly border-b h-16 items-center">
-      <h1 className="w-60 font-bold text-4xl mobile:text-3xl text-center">
-        SEA DOT
-      </h1>
+    <nav
+      className="flex justify-evenly border-b h-16 items-center desktop:ml-[4em]"
+    >
+      <div className="w-60 font-bold text-4xl mobile:text-3xl text-center">
+        <a href="/">SEA DOT</a>
+      </div>
       <Dropdown />
       <a
         href="#features"
