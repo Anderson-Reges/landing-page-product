@@ -2,12 +2,13 @@ import React from "react";
 import cart from "../../assets/cart-icon.svg";
 import Dropdown from "../Dropdown/Dropdown";
 import DropdownMob from "../Dropdown/DropdownMob";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ItemContext } from "../../context/ItemProvider";
 
 const NavBottom: React.FC = () => {
   const { itemCart, setItemCart } = React.useContext(ItemContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const checkStorage = (): void => {
     if (!localStorage.getItem("cart")) {
@@ -65,14 +66,17 @@ const NavBottom: React.FC = () => {
       >
         CONTACT
       </a>
-      <button
-        className="
-        mobile:hidden desktop:flex bg-primary w-52 h-11 justify-center
-        items-center rounded-3xl font-bold text-background-1"
-        onClick={checkStorage}
-      >
-        BUY NOW
-      </button>
+      {
+        location.pathname === "/" &&
+        <button
+          className="
+          mobile:hidden desktop:flex bg-primary w-52 h-11 justify-center
+          items-center rounded-3xl font-bold text-background-1"
+          onClick={checkStorage}
+        >
+          BUY NOW
+        </button>
+      }
       <a href="/cart">
         <img src={cart} alt="" className="block desktop:hidden w-6" />
       </a>
