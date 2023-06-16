@@ -1,9 +1,37 @@
 import React from "react";
 import headset from "../assets/headset.png";
 import { useNavigate } from "react-router-dom";
+import { ItemContext } from "../context/ItemProvider";
 
 const Merchandising: React.FC = () => {
-  const navigate = useNavigate()
+  const { itemCart, setItemCart } = React.useContext(ItemContext);
+  const navigate = useNavigate();
+
+  const checkStorage = (): void => {
+    if (!localStorage.getItem("cart")) {
+      localStorage.setItem("cart", JSON.stringify(itemCart));
+      navigate("/cart");
+    } else {
+      addItemInCart();
+    }
+  };
+
+  const addItemInCart = (): void => {
+    const newItem = {
+      name: itemCart.name,
+      price: itemCart.price,
+      quantity: itemCart.quantity + 1,
+      subtotal: itemCart.price * (itemCart.quantity + 1),
+    };
+    localStorage.setItem("cart", JSON.stringify(newItem));
+    setItemCart(newItem);
+    navigate("/cart");
+  };
+
+  React.useEffect(() => {
+    const cartStorage = JSON.parse(localStorage.getItem("cart") as string);
+    cartStorage && setItemCart(cartStorage);
+  }, [setItemCart]);
 
   return (
     <div
@@ -31,7 +59,7 @@ const Merchandising: React.FC = () => {
         w-52 h-11 rounded-3xl 
         font-semibold text-background-1 transition ease-in-out 
         delay-150 hover:-translate-y-1 hover:scale-110"
-        onClick={() => navigate("/cart")}
+        onClick={ checkStorage }
       >
         PURCHASE SEADOT
       </button>

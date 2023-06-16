@@ -6,28 +6,37 @@ import { useNavigate } from "react-router-dom";
 import { ItemContext } from "../../context/ItemProvider";
 
 const NavBottom: React.FC = () => {
-  const { itemCart, setItemCart } = React.useContext(ItemContext)
-  const navigate = useNavigate()
-  
-  const addItemInCart = (): void => {
-    const cartStorage = JSON.parse(localStorage.getItem("cart") as string)
-    if (cartStorage !== null) {
-      console.log("entrei")
-      setItemCart({
-        name: itemCart.name,
-        price: itemCart.price,
-        quantity: itemCart.quantity + 1,
-        subtotal: itemCart.price * (itemCart.quantity + 1)
-      })
-    }
+  const { itemCart, setItemCart } = React.useContext(ItemContext);
+  const navigate = useNavigate();
 
-    // navigate("/cart")
-  }
+  const checkStorage = (): void => {
+    if (!localStorage.getItem("cart")) {
+      localStorage.setItem("cart", JSON.stringify(itemCart));
+      navigate("/cart");
+    } else {
+      addItemInCart();
+    }
+  };
+
+  const addItemInCart = (): void => {
+    const newItem = {
+      name: itemCart.name,
+      price: itemCart.price,
+      quantity: itemCart.quantity + 1,
+      subtotal: itemCart.price * (itemCart.quantity + 1),
+    };
+    localStorage.setItem("cart", JSON.stringify(newItem));
+    setItemCart(newItem);
+    navigate("/cart");
+  };
+
+  React.useEffect(() => {
+    const cartStorage = JSON.parse(localStorage.getItem("cart") as string);
+    cartStorage && setItemCart(cartStorage);
+  }, [setItemCart]);
 
   return (
-    <nav
-      className="flex justify-evenly border-b h-16 items-center desktop:ml-[4em]"
-    >
+    <nav className="flex justify-evenly border-b h-16 items-center desktop:ml-[4em]">
       <div className="w-60 font-bold text-4xl mobile:text-3xl text-center">
         <a href="/">SEA DOT</a>
       </div>
@@ -60,7 +69,7 @@ const NavBottom: React.FC = () => {
         className="
         mobile:hidden desktop:flex bg-primary w-52 h-11 justify-center
         items-center rounded-3xl font-bold text-background-1"
-        onClick={ addItemInCart }
+        onClick={checkStorage}
       >
         BUY NOW
       </button>

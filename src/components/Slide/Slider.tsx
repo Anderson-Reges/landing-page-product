@@ -3,9 +3,11 @@ import Slide1 from "./Slide1";
 import Slide2 from "./Slide2";
 import { SlideContext } from "../../context/SlideProvider";
 import { useNavigate } from "react-router-dom";
+import { ItemContext } from "../../context/ItemProvider";
 
 const Slider: React.FC = () => {
   const { slide, setSlide } = React.useContext(SlideContext);
+  const { itemCart, setItemCart } = React.useContext(ItemContext);
   const navigate = useNavigate()
 
   const handleSlider = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
@@ -16,6 +18,28 @@ const Slider: React.FC = () => {
     }
   };
 
+  const checkStorage = (): void => {
+    if (!localStorage.getItem("cart")) {
+      localStorage.setItem("cart", JSON.stringify(itemCart));
+      navigate("/cart");
+    } else {
+      addItemInCart();
+    }
+  };
+
+  const addItemInCart = (): void => {
+    const newItem = {
+      name: itemCart.name,
+      price: itemCart.price,
+      quantity: itemCart.quantity + 1,
+      subtotal: itemCart.price * (itemCart.quantity + 1),
+    };
+    localStorage.setItem("cart", JSON.stringify(newItem));
+    setItemCart(newItem);
+    navigate("/cart");
+  };
+
+
   React.useEffect(() => {
     const timer = setInterval(() => {
       setSlide((prevState) => ({
@@ -24,10 +48,13 @@ const Slider: React.FC = () => {
       }));
     }, 10000);
 
+    const cartStorage = JSON.parse(localStorage.getItem("cart") as string);
+    cartStorage && setItemCart(cartStorage);
+
     return () => {
       clearInterval(timer);
     };
-  }, []);
+  }, [setItemCart, setSlide]);
 
   return (
     <div className="h-[604px]">
@@ -53,7 +80,7 @@ const Slider: React.FC = () => {
             font-semibold text-primary transition ease-in-out 
             delay-150 hover:-translate-y-1 hover:scale-110
             mobile:tracking-widest"
-        onClick={() => navigate("/cart")}
+        onClick={ checkStorage }
       >
         PURCHASE SEADOT
       </button>
