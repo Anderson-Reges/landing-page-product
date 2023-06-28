@@ -3,6 +3,7 @@ import headset from "../assets/headset.png";
 import ICartForm from "../interfaces/ICartForm";
 import Loading from "./LoadingComponent";
 import EmptyCart from "./EmptyCartComponent";
+import { useNavigate } from "react-router-dom";
 
 const CartForm: React.FC<ICartForm> = ({
   itemInStorage,
@@ -12,6 +13,7 @@ const CartForm: React.FC<ICartForm> = ({
   setQuantity,
   loading,
 }) => {
+  const navigate = useNavigate()
   const [isEmpty, setIsEmpty] = React.useState<boolean>(true);
 
   React.useEffect(() => {
@@ -42,7 +44,7 @@ const CartForm: React.FC<ICartForm> = ({
               <th className="w-[16%]">Product</th>
               <th className="w-[16%]">Price</th>
               <th className="w-[16%]">Quantity</th>
-              <th className="w-[16%]">Subtotal</th>
+              <th className="w-[16%]">Total</th>
             </thead>
             <tbody>
               <tr className="text-left">
@@ -66,7 +68,9 @@ const CartForm: React.FC<ICartForm> = ({
                     type="number"
                     value={quantity}
                     onChange={({ target }) => setQuantity(target.value)}
-                    className="rounded-full w-[5em]"
+                    className="
+                    rounded-full w-[5em] bg-background-2 border-none
+                    text-center pl-[1.5em]"
                   />
                 </td>
                 <td className="align-middle">${itemInStorage.subtotal}</td>
@@ -74,15 +78,28 @@ const CartForm: React.FC<ICartForm> = ({
             </tbody>
           </table>
         )}
+        <div className="flex gap-[1.5em]">
         <button
-          className={`
+            className={`
             bg-primary w-44 h-11 justify-center
-            items-center rounded-3xl font-normal text-background-1
-            ${isEmpty ? "hidden" : (loading && "hidden")}`}
-          onClick={updateCart}
-        >
-          UPDATE CART
-        </button>
+            items-center rounded-3xl font-bold text-background-1
+            ${isEmpty ? "hidden" : loading && "hidden"}
+            disabled:opacity-[0.5] disabled:cursor-not-allowed`}
+            onClick={updateCart}
+            disabled={Number(quantity) === itemInStorage.quantity}
+          >
+            Update Cart
+          </button>
+          <button
+            className={`
+              bg-primary w-44 h-11 justify-center
+              items-center rounded-3xl font-bold text-background-1
+              ${isEmpty ? "hidden" : (loading && "hidden")}`}
+            onClick={() => navigate('/checkout')}
+          >
+            Proceed to Checkout
+          </button>
+        </div>
       </form>
     </div>
   );
