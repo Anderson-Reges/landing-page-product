@@ -1,6 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const EmptyCart: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className='flex flex-col gap-[2em]'>
       <div
@@ -11,6 +14,7 @@ const EmptyCart: React.FC = () => {
       <button
         className='flex bg-primary w-52 h-11 justify-center
         items-center rounded-3xl font-bold text-background-1'
+        onClick={ () => navigate("/") }
       >
         RETURN HOME
       </button>
