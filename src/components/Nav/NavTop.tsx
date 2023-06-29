@@ -5,16 +5,22 @@ import cart from "../../assets/cart-icon.svg";
 import SVGComponent from "../SVGComponent";
 import iconsSVG from "../../assets/network-icons-svg.json";
 import IconSVG from "../../interfaces/ISvg";
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from "react-router-dom";
+import IItemCart from "../../interfaces/IItemCart";
 
 const NavTop: React.FC = () => {
   const icons: IconSVG[] = iconsSVG;
-  const navigate = useNavigate()
-  const { pathname } = useLocation()
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const itemInStorage: IItemCart = JSON.parse(localStorage.getItem("cart") as string)
 
   return (
     <div className="flex justify-around border-b desktop:h-11 mobile:h-14">
-      <ul className="flex border-r border-l desktop:w-1/5 mobile:w-1/2 desktop:h-11 mobile:h-14 items-center container gap-2 justify-evenly">
+      <ul
+        className="flex border-r border-l desktop:w-1/5
+        mobile:w-1/2 desktop:h-11 mobile:h-14 items-center
+        container gap-2 justify-evenly"
+      >
         {icons.map((svg, index) => (
           <li key={index}>
             <SVGComponent
@@ -29,7 +35,10 @@ const NavTop: React.FC = () => {
           </li>
         ))}
       </ul>
-      <ul className="flex w-1/3 border-l border-r desktop:h-11 mobile:h-14 items-center justify-evenly">
+      <ul
+        className="flex w-1/3 border-l border-r
+        desktop:h-11 mobile:h-14 items-center justify-evenly"
+      >
         <li className="desktop:hidden">
           <img src={phone} alt="" className="w-5" />
         </li>
@@ -44,14 +53,30 @@ const NavTop: React.FC = () => {
           <img src={mail} alt="" />
           contact@seadot.com
         </li>
-        {pathname !== "/cart" && <li className="hidden desktop:flex">
-          <img
-            src={cart}
-            alt="" 
-            onClick={ () => navigate("/cart") }
-            className="cursor-pointer"
-          />
-        </li>}
+        {pathname !== "/cart" && (
+          <li className="hidden desktop:flex relative">
+            <img
+              src={cart}
+              alt=""
+              onClick={() => navigate("/cart")}
+              className="cursor-pointer"
+            />
+            { itemInStorage && (
+              <>
+                <span
+                  className="w-3 h-3 bg-primary rounded-full
+                  animate-ping absolute left-[1.3em] cursor-pointer"
+                  onClick={() => navigate("/cart")}
+                />
+                <span
+                  className="w-3 h-3 bg-primary rounded-full
+                  absolute left-[1.2em] bottom-[0.9em] cursor-pointer"
+                  onClick={() => navigate("/cart")}
+                />
+              </>)
+            }
+          </li>
+        )}
       </ul>
     </div>
   );
