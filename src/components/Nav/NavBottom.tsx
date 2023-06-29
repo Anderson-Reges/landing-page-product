@@ -4,9 +4,11 @@ import Dropdown from "../Dropdown/Dropdown";
 import DropdownMob from "../Dropdown/DropdownMob";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ItemContext } from "../../context/ItemProvider";
+import IItemCart from "../../interfaces/IItemCart";
 
 const NavBottom: React.FC = () => {
   const { itemCart, setItemCart } = React.useContext(ItemContext);
+  const itemInStorage: IItemCart = JSON.parse(localStorage.getItem("cart") as string)
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -79,6 +81,22 @@ const NavBottom: React.FC = () => {
       }
       <a href="/cart">
         <img src={cart} alt="" className="block desktop:hidden w-6" />
+        { itemInStorage && (
+          <>
+            <span
+              className="w-3 h-3 bg-primary rounded-full
+              animate-ping absolute right-[4.2em] bottom-[2.2em] cursor-pointer
+              desktop:hidden"
+              onClick={() => navigate("/cart")}
+            />
+            <span
+              className="w-3 h-3 bg-primary rounded-full
+              absolute right-[4.2em] bottom-[2.2em] cursor-pointer
+              desktop:hidden"
+              onClick={() => navigate("/cart")}
+            />
+          </>)
+        }
       </a>
       <DropdownMob />
     </nav>

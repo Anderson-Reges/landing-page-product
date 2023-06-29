@@ -65,7 +65,7 @@ const NavTop: React.FC = () => {
               <>
                 <span
                   className="w-3 h-3 bg-primary rounded-full
-                  animate-ping absolute left-[1.3em] cursor-pointer"
+                  animate-ping absolute left-[1.2em] bottom-[0.9em] cursor-pointer"
                   onClick={() => navigate("/cart")}
                 />
                 <span
