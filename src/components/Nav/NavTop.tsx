@@ -12,7 +12,6 @@ const NavTop: React.FC = () => {
   const icons: IconSVG[] = iconsSVG;
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  console.log(pathname)
   const itemInStorage: IItemCart = JSON.parse(localStorage.getItem("cart") as string)
 
   return (
