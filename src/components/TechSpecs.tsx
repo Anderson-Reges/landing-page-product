@@ -2,7 +2,9 @@ import React from 'react';
 
 const TechSpecs: React.FC = () => {
   return (
-    <div className='
+    <div
+      id='tech'
+      className='
       flex flex-col justify-center items-center
       py-20 gap-[2em] bg-background-2'
     >

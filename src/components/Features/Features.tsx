@@ -10,6 +10,7 @@ import FeaturesRight from './FeaturesRight';
 const Features: React.FC = () => {
   return (
     <div
+      id="features"
       className='
       flex justify-center items-center
       px-[3em] pt-[3em] desktop:pb-0 mobile:pb-[3em]'
