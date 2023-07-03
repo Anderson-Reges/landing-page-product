@@ -56,7 +56,7 @@ const Merchandising: React.FC = () => {
       ></div>
       <button
         className="bg-primary
-        w-52 h-11 rounded-3xl 
+        w-52 desktop:h-11 rounded-3xl 
         font-semibold text-background-1 transition ease-in-out 
         delay-150 hover:-translate-y-1 hover:scale-110 tablet:h-[6em]"
         onClick={ checkStorage }

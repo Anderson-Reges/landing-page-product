@@ -16,7 +16,7 @@ const SpecificInfo: React.FC = () => {
         >
           <h1
             className='
-            desktop:text-5xl mobile:text-2xl text-background-3
+            desktop:text-5xl desktop:w-[15em] mobile:text-2xl text-background-3
             font-extrabold tablet:text-4xl tablet:w-[20em]'
           >
             DISCOVER THE TECHNOLOGY AND EXPERIENCE THAT GOES INTO OUR PRODUCTS
