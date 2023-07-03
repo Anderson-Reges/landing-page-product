@@ -27,13 +27,14 @@ const LastUpdates: React.FC = () => {
             className='
             h-14 desktop:w-3/4 desktop:rounded-l-full
             mobile:rounded-[20em] border-none desktop:pl-[2em]
-            mobile:px-[2em] desktop:px-0'
+            mobile:px-[2em] desktop:px-0 tablet:w-[75%]'
           />
           <button
             className='
             bg-primary desktop:w-32 mobile:w-[90%] h-14 desktop:rounded-r-full
             mobile:rounded-[20em] font-semibold text-background-1
-            desktop:absolute mobile:gap-[2em] desktop:gap-0 mobile:tracking-widest'
+            desktop:absolute mobile:gap-[2em] desktop:gap-0 mobile:tracking-widest
+            tablet:w-[75%]'
           >
             SUBSCRIBE
           </button>
