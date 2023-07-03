@@ -44,7 +44,7 @@ const Merchandising: React.FC = () => {
         className="
         font-bold desktop:text-3xl mobile:text-2xl
         desktop:w-[19em] mobile:w-[10em] text-center
-        "
+        tablet:w-[20em] tablet:text-3xl"
       >
         FREE SHIPPING WITH EVERY PURCHASE. TAKE ADVANTAGE OF OUR OFFERS.
       </h1>
@@ -58,7 +58,7 @@ const Merchandising: React.FC = () => {
         className="bg-primary
         w-52 h-11 rounded-3xl 
         font-semibold text-background-1 transition ease-in-out 
-        delay-150 hover:-translate-y-1 hover:scale-110"
+        delay-150 hover:-translate-y-1 hover:scale-110 tablet:h-[6em]"
         onClick={ checkStorage }
       >
         PURCHASE SEADOT
