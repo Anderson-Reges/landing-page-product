@@ -59,19 +59,20 @@ const NavTop: React.FC = () => {
               src={cart}
               alt=""
               onClick={() => navigate("/cart")}
-              className="cursor-pointer mobile:hidden"
+              className="cursor-pointer desktop:block mobile:hidden"
             />
             {itemInStorage && (
               <>
                 <span
                   className="w-3 h-3 bg-primary rounded-full
                   animate-ping absolute left-[1.2em] bottom-[0.9em]
-                  cursor-pointer mobile:hidden"
+                  cursor-pointer desktop:block mobile:hidden"
                   onClick={() => navigate("/cart")}
                 />
                 <span
                   className="w-3 h-3 bg-primary rounded-full absolute
-                  left-[1.2em] bottom-[0.9em] cursor-pointer mobile:hidden"
+                  left-[1.2em] bottom-[0.9em] cursor-pointer mobile:hidden
+                  desktop:block"
                   onClick={() => navigate("/cart")}
                 />
               </>

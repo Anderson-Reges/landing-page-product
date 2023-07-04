@@ -81,6 +81,26 @@ const NavBottom: React.FC = () => {
         </button>
       )}
       <a href="/cart">
+        {itemInStorage && (
+          <>
+            <span
+              className={`w-3 h-3 bg-primary rounded-full
+              animate-ping absolute cursor-pointer ml-[1em]
+              desktop:hidden ${
+                (pathname === "/cart" || pathname === "/checkout") && "mobile:hidden"
+              }`}
+              onClick={() => navigate("/cart")}
+            />
+            <span
+              className={`w-3 h-3 bg-primary rounded-full
+              absolute cursor-pointer ml-[1em]
+              desktop:hidden ${
+                (pathname === "/cart" || pathname === "/checkout") && "mobile:hidden"
+              }`}
+              onClick={() => navigate("/cart")}
+            />
+          </>
+        )}
         <img
           src={cart}
           alt=""
@@ -88,26 +108,6 @@ const NavBottom: React.FC = () => {
             (pathname === "/cart" || pathname === "/checkout") && "mobile:hidden"
           }`}
         />
-        {itemInStorage && (
-          <>
-            <span
-              className={`w-3 h-3 bg-primary rounded-full
-              animate-ping absolute right-[4.2em] bottom-[2.2em] cursor-pointer
-              desktop:hidden mobile:right-[5.5em] ${
-                (pathname === "/cart" || pathname === "/checkout") && "mobile:hidden"
-              }`}
-              onClick={() => navigate("/cart")}
-            />
-            <span
-              className={`w-3 h-3 bg-primary rounded-full
-              absolute right-[4.2em] bottom-[2.2em] cursor-pointer
-              desktop:hidden mobile:right-[5.5em] ${
-                (pathname === "/cart" || pathname === "/checkout") && "mobile:hidden"
-              }`}
-              onClick={() => navigate("/cart")}
-            />
-          </>
-        )}
       </a>
       <DropdownMob />
     </nav>
