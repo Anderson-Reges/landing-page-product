@@ -12,7 +12,6 @@ const NavTop: React.FC = () => {
   const icons: IconSVG[] = iconsSVG;
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  console.log(pathname)
   const itemInStorage: IItemCart = JSON.parse(localStorage.getItem("cart") as string)
 
   return (
@@ -55,24 +54,25 @@ const NavTop: React.FC = () => {
           contact@seadot.com
         </li>
         {(pathname !== "/cart" && pathname !== "/checkout") && (
-          <li className="desktop:flex relative">
+          <li className="desktop:flex relative mobile:hidden laptop:block">
             <img
               src={cart}
               alt=""
               onClick={() => navigate("/cart")}
-              className="cursor-pointer"
+              className="cursor-pointer desktop:block mobile:hidden laptop:block"
             />
             {itemInStorage && (
               <>
                 <span
                   className="w-3 h-3 bg-primary rounded-full
                   animate-ping absolute left-[1.2em] bottom-[0.9em]
-                  cursor-pointer"
+                  cursor-pointer desktop:block mobile:hidden laptop:block"
                   onClick={() => navigate("/cart")}
                 />
                 <span
                   className="w-3 h-3 bg-primary rounded-full absolute
-                  left-[1.2em] bottom-[0.9em] cursor-pointer"
+                  left-[1.2em] bottom-[0.9em] cursor-pointer mobile:hidden
+                  desktop:block laptop:block"
                   onClick={() => navigate("/cart")}
                 />
               </>

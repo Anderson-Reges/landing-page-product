@@ -19,7 +19,7 @@ const Features: React.FC = () => {
         className='
         flex desktop:flex-row desktop:gap-0
         items-center justify-evenly w-screen
-        mobile:flex-col mobile:gap-[2em]'
+        mobile:flex-col mobile:gap-[2em] tablet:flex-row'
       >
         <div className='flex flex-col desktop:gap-[4em] mobile:gap-[2em]'>
           <FeaturesLeft
@@ -36,7 +36,7 @@ const Features: React.FC = () => {
         <div
           className="
           desktop:flex bg-center bg-cover
-          h-[496px] w-[380px] mobile:hidden"
+          h-[496px] w-[380px] mobile:hidden tablet:hidden"
           style={{ backgroundImage: `url(${headset})` }}
         ></div>
         <div className='flex flex-col desktop:gap-[4em] mobile:gap-[2em]'>

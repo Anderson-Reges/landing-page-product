@@ -8,9 +8,11 @@ import IItemCart from "../../interfaces/IItemCart";
 
 const NavBottom: React.FC = () => {
   const { itemCart, setItemCart } = React.useContext(ItemContext);
-  const itemInStorage: IItemCart = JSON.parse(localStorage.getItem("cart") as string)
+  const itemInStorage: IItemCart = JSON.parse(
+    localStorage.getItem("cart") as string
+  );
   const navigate = useNavigate();
-  const location = useLocation();
+  const { pathname } = useLocation();
 
   const checkStorage = (): void => {
     if (!localStorage.getItem("cart")) {
@@ -48,7 +50,7 @@ const NavBottom: React.FC = () => {
         href="#features"
         className="
         hidden text-background-3 font-semibold rounded
-        items-center desktop:flex"
+        items-center desktop:flex laptop:block"
       >
         FEATURES
       </a>
@@ -56,7 +58,7 @@ const NavBottom: React.FC = () => {
         href="#tech"
         className="
         hidden text-background-3 font-semibold rounded
-        items-center desktop:flex"
+        items-center desktop:flex laptop:block"
       >
         TECH SPECS
       </a>
@@ -64,39 +66,48 @@ const NavBottom: React.FC = () => {
         href="#contact"
         className="
         hidden text-background-3 font-semibold rounded
-        items-center desktop:flex"
+        items-center desktop:flex laptop:block"
       >
         CONTACT
       </a>
-      {
-        location.pathname === "/" &&
+      {pathname === "/" && (
         <button
           className="
-          mobile:hidden desktop:flex bg-primary w-52 h-11 justify-center
+          mobile:hidden laptop:block desktop:flex bg-primary w-52 h-11 justify-center
           items-center rounded-3xl font-bold text-background-1"
           onClick={checkStorage}
         >
           BUY NOW
         </button>
-      }
-      <a href="/cart">
-        <img src={cart} alt="" className="block desktop:hidden w-6" />
-        { itemInStorage && (
+      )}
+      <a href="/cart" className="laptop:hidden">
+        {itemInStorage && (
           <>
             <span
-              className="w-3 h-3 bg-primary rounded-full
-              animate-ping absolute right-[4.2em] bottom-[2.2em] cursor-pointer
-              desktop:hidden"
+              className={`w-3 h-3 bg-primary rounded-full
+              animate-ping absolute cursor-pointer ml-[1em]
+              desktop:hidden  ${
+                (pathname === "/cart" || pathname === "/checkout") && "mobile:hidden"
+              }`}
               onClick={() => navigate("/cart")}
             />
             <span
-              className="w-3 h-3 bg-primary rounded-full
-              absolute right-[4.2em] bottom-[2.2em] cursor-pointer
-              desktop:hidden"
+              className={`w-3 h-3 bg-primary rounded-full
+              absolute cursor-pointer ml-[1em]
+              desktop:hidden ${
+                (pathname === "/cart" || pathname === "/checkout") && "mobile:hidden"
+              }`}
               onClick={() => navigate("/cart")}
             />
-          </>)
-        }
+          </>
+        )}
+        <img
+          src={cart}
+          alt=""
+          className={`block desktop:hidden w-6 ${
+            (pathname === "/cart" || pathname === "/checkout") && "mobile:hidden"
+          }`}
+        />
       </a>
       <DropdownMob />
     </nav>

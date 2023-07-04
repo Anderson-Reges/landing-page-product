@@ -14,7 +14,8 @@ const DropdownMob: React.FC = () => {
     <>
     <div className="relative">
       <button
-        className="font-semibold py-2 px-4 rounded inline-flex items-center desktop:hidden"
+        className="font-semibold py-2 px-4 rounded inline-flex items-center desktop:hidden
+        laptop:hidden"
         onClick={toggleDropdown}
       >
         <img src={isOpen ? Xicon : menu} alt=''/>

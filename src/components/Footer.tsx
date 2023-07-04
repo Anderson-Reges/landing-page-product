@@ -13,9 +13,10 @@ const Footer: React.FC = () => {
         flex desktop:flex-row w-full h-[85%]
         mobile:items-baseline desktop:items-center py-[2em]
         desktop:px-[5em] mobile:px-[2em]
-        mobile:flex-col mobile:gap-[2em] desktop:gap-0"
+        mobile:flex-col mobile:gap-[2em] desktop:gap-0 tablet:flex-row
+        tablet:justify-between"
       >
-        <div className="flex flex-col gap-[2em] desktop:w-[33%]">
+        <div className="flex flex-col gap-[2em] desktop:w-[33%] tablet:w-[35%]">
           <h3 className="text-4xl font-bold">SEA DOT</h3>
           <p className="w-[80%]">
             Orem Ipsum is simply dumm text the printing and types indstr sum has

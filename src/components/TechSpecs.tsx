@@ -26,7 +26,8 @@ const TechSpecs: React.FC = () => {
         className='
         flex desktop:flex-row mobile:flex-col
         justify-evenly w-full desktop:items-baseline
-        mobile:items-center desktop:gap-0 mobile:gap-[2em]'
+        mobile:items-center desktop:gap-0 mobile:gap-[2em]
+        tablet:flex-row tablet:items-start tablet:px-[2em] tablet:text-sm'
       >
         <div>
           <h4 className='font-semibold'>General</h4>

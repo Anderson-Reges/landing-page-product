@@ -31,7 +31,7 @@ const Dropdown: React.FC = () => {
       <button
         className="
         text-background-3 mobile:hidden font-semibold
-        inline-flex items-center desktop:flex"
+        inline-flex items-center desktop:flex laptop:flex"
         onClick={toggleDropdown}
       >
         <span>HOME</span>

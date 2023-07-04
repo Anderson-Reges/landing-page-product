@@ -60,11 +60,15 @@ const Checkout: React.FC = () => {
   return (
     <>
       <Nav />
-      <header className="flex desktop:flex-col desktop:pt-[200px] desktop:pb-[90px] bg-background-2">
-        <span className="desktop:mx-[55px] text-5xl font-extrabold mb-3">
+      <header
+        className="flex desktop:flex-col desktop:pt-[200px] desktop:pb-[90px] desktop:h-[23.38em]
+        desktop:top-0 desktop:py-0 bg-background-2 mobile:h-[19em]
+        mobile:flex-col mobile:top-[7.5em] mobile:py-[60px] mobile:pt-[11em]"
+      >
+        <span className="desktop:mx-[55px] text-5xl font-extrabold mb-3 mobile:mx-[30px]">
           CHECKOUT
         </span>
-        <div className="desktop:mx-[55px] flex">
+        <div className="desktop:mx-[55px] flex mobile:mx-[30px]">
           <span className="text-background-3 opacity-[0.4] hover:opacity-[1] mr-1">
             <a href="/">Home</a>
           </span>
@@ -72,12 +76,12 @@ const Checkout: React.FC = () => {
           <span className="ml-1">Checkout</span>
         </div>
       </header>
-      <section className="p-[6em] gap-[1em]">
+      <section className="p-[6em] gap-[1em] mobile:p-[2em]">
         <div className="flex gap-[3em]">
-          <form className="flex justify-between w-full gap-[3em]">
-            <div className="flex flex-col gap-1 w-[50%]">
+          <form className="flex justify-between w-full gap-[3em] desktop:flex-row mobile:flex-col">
+            <div className="flex flex-col gap-1 desktop:w-[50%] mobile:w-full">
               <h1 className="mb-[1em] font-bold text-2xl">BILLING DETAILS</h1>
-              <div className="flex justify-between">
+              <div className="flex justify-between desktop:flex-row mobile:flex-col">
                 <label htmlFor="" className="flex flex-col font-semibold">
                   First name
                   <input
@@ -180,7 +184,7 @@ const Checkout: React.FC = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div className="flex flex-col w-[50%]">
+            <div className="flex flex-col desktop:w-[50%] mobile:w-full">
               <h1 className="mb-[1em] font-bold text-2xl">
                 ADDITIONAL INFORMATION
               </h1>
@@ -201,7 +205,7 @@ const Checkout: React.FC = () => {
         </div>
         <div className="flex flex-col gap-[1em]">
           <h1 className="my-[1em] font-bold text-2xl">YOUR ORDER</h1>
-          <table className="flex flex-col bg-background-2 w-[45%] p-[2em]">
+          <table className="flex flex-col bg-background-2 desktop:w-[45%] mobile:w-full p-[2em]">
             <thead className="flex justify-around">
               <th>Product</th>
               <th>Subtotal</th>
