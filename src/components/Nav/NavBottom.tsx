@@ -85,7 +85,7 @@ const NavBottom: React.FC = () => {
           src={cart}
           alt=""
           className={`block desktop:hidden w-6 ${
-            pathname === "/cart" && "mobile:hidden"
+            (pathname === "/cart" || pathname === "/checkout") && "mobile:hidden"
           }`}
         />
         {itemInStorage && (
@@ -94,7 +94,7 @@ const NavBottom: React.FC = () => {
               className={`w-3 h-3 bg-primary rounded-full
               animate-ping absolute right-[4.2em] bottom-[2.2em] cursor-pointer
               desktop:hidden mobile:right-[5.5em] ${
-                pathname === "/cart" && "mobile:hidden"
+                (pathname === "/cart" || pathname === "/checkout") && "mobile:hidden"
               }`}
               onClick={() => navigate("/cart")}
             />
@@ -102,7 +102,7 @@ const NavBottom: React.FC = () => {
               className={`w-3 h-3 bg-primary rounded-full
               absolute right-[4.2em] bottom-[2.2em] cursor-pointer
               desktop:hidden mobile:right-[5.5em] ${
-                pathname === "/cart" && "mobile:hidden"
+                (pathname === "/cart" || pathname === "/checkout") && "mobile:hidden"
               }`}
               onClick={() => navigate("/cart")}
             />
