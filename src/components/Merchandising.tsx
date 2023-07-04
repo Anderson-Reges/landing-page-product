@@ -51,12 +51,12 @@ const Merchandising: React.FC = () => {
       <div
         className="
           flex bg-center bg-cover
-          h-[496px] w-[320px] desktop:hidden"
+          h-[180px] w-[180px] desktop:hidden"
         style={{ backgroundImage: `url(${headset})` }}
       ></div>
       <button
         className="bg-primary
-        w-52 desktop:h-11 rounded-3xl 
+        w-52 desktop:h-11 rounded-3xl mobile:h-11
         font-semibold text-background-1 transition ease-in-out 
         delay-150 hover:-translate-y-1 hover:scale-110 tablet:h-[6em]"
         onClick={ checkStorage }
