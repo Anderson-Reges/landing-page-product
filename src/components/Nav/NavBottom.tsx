@@ -50,7 +50,7 @@ const NavBottom: React.FC = () => {
         href="#features"
         className="
         hidden text-background-3 font-semibold rounded
-        items-center desktop:flex"
+        items-center desktop:flex laptop:block"
       >
         FEATURES
       </a>
@@ -58,7 +58,7 @@ const NavBottom: React.FC = () => {
         href="#tech"
         className="
         hidden text-background-3 font-semibold rounded
-        items-center desktop:flex"
+        items-center desktop:flex laptop:block"
       >
         TECH SPECS
       </a>
@@ -66,27 +66,27 @@ const NavBottom: React.FC = () => {
         href="#contact"
         className="
         hidden text-background-3 font-semibold rounded
-        items-center desktop:flex"
+        items-center desktop:flex laptop:block"
       >
         CONTACT
       </a>
       {pathname === "/" && (
         <button
           className="
-          mobile:hidden desktop:flex bg-primary w-52 h-11 justify-center
+          mobile:hidden laptop:block desktop:flex bg-primary w-52 h-11 justify-center
           items-center rounded-3xl font-bold text-background-1"
           onClick={checkStorage}
         >
           BUY NOW
         </button>
       )}
-      <a href="/cart">
+      <a href="/cart" className="laptop:hidden">
         {itemInStorage && (
           <>
             <span
               className={`w-3 h-3 bg-primary rounded-full
               animate-ping absolute cursor-pointer ml-[1em]
-              desktop:hidden ${
+              desktop:hidden  ${
                 (pathname === "/cart" || pathname === "/checkout") && "mobile:hidden"
               }`}
               onClick={() => navigate("/cart")}

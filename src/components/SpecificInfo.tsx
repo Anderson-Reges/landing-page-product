@@ -10,14 +10,14 @@ const SpecificInfo: React.FC = () => {
       >
         <div
           className='
-          absolute flex flex-col desktop:w-1/2 mobile:w-screen h-1/3
+          absolute flex flex-col desktop:w-1/2 mobile:w-screen
           desktop:right-10 desktop:top-36 gap-[2em] mobile:px-[3em]
-          mobile:pt-[3em] desktop:px-0 desktop:pt-0'
+          mobile:pt-[3em] desktop:px-0 desktop:pt-0 laptop:items-end'
         >
           <h1
             className='
             desktop:text-5xl desktop:w-[15em] mobile:text-2xl text-background-3
-            font-extrabold tablet:text-4xl tablet:w-[20em]'
+            font-extrabold tablet:text-4xl tablet:w-[15em] laptop:pl-[1em]'
           >
             DISCOVER THE TECHNOLOGY AND EXPERIENCE THAT GOES INTO OUR PRODUCTS
           </h1>
@@ -29,7 +29,7 @@ const SpecificInfo: React.FC = () => {
             <div
               className='
               desktop:bg-transparent mobile:bg-background-1 mobile:rounded-2xl
-              mobile:px-[1.5em] mobile:py-[1em] tablet:opacity-[0.9]'
+              mobile:px-[1.5em] mobile:py-[1em] tablet:opacity-[0.9] laptop:bg-transparent'
             >
               <h2 className='flex desktop:text-8xl mobile:text-7xl mobile:items-baseline'>
                 40<p className='text-primary desktop:text-8xl mobile:text-6xl'>h</p>
@@ -40,7 +40,7 @@ const SpecificInfo: React.FC = () => {
             <div
               className='
               desktop:bg-transparent mobile:bg-background-1 mobile:rounded-2xl mobile:px-[1.5em]
-              mobile:py-[1em] tablet:opacity-[0.9]'
+              mobile:py-[1em] tablet:opacity-[0.9] laptop:bg-transparent'
             >
               <h2 className='flex desktop:text-8xl mobile:text-7xl mobile:items-baseline'>
                 30<p className='text-primary mobile:text-6xl desktop:text-8xl'>min</p>
