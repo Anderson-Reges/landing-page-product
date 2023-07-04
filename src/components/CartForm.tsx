@@ -16,13 +16,14 @@ const CartForm: React.FC<ICartForm> = ({
 }) => {
   const navigate = useNavigate()
   const [disableButton, setDisableButton] = React.useState<boolean>(true)
-  const [isEmpty, setIsEmpty] = React.useState<boolean>(true);
+  const [isEmpty, setIsEmpty] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     const local: IItemCart = JSON.parse(localStorage.getItem("cart") as string);
-  
-    if (local) {
-      setIsEmpty(false);
+
+    if (!local || Number(local.quantity) === 0) {
+      setIsEmpty(true);
+      localStorage.removeItem("cart")
     }
 
     if (Number(quantity) !== Number(local.quantity)) {
