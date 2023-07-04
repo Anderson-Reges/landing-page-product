@@ -4,6 +4,7 @@ import ICartForm from "../interfaces/ICartForm";
 import Loading from "./LoadingComponent";
 import EmptyCart from "./EmptyCartComponent";
 import { useNavigate } from "react-router-dom";
+import IItemCart from "../interfaces/IItemCart";
 
 const CartForm: React.FC<ICartForm> = ({
   itemInStorage,
@@ -14,23 +15,31 @@ const CartForm: React.FC<ICartForm> = ({
   loading,
 }) => {
   const navigate = useNavigate()
+  const [disableButton, setDisableButton] = React.useState<boolean>(true)
   const [isEmpty, setIsEmpty] = React.useState<boolean>(true);
 
   React.useEffect(() => {
-    const local = JSON.parse(localStorage.getItem("cart") as string);
-
+    const local: IItemCart = JSON.parse(localStorage.getItem("cart") as string);
+  
     if (local) {
       setIsEmpty(false);
     }
-  }, []);
+
+    if (Number(quantity) !== Number(local.quantity)) {
+      setDisableButton(false)
+    } else {
+      setDisableButton(true)
+    }
+
+  }, [quantity]);
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center mobile:gap-[1em]">
       <form
         className="
                 flex flex-col justify-center items-center
-                w-[85%] h-[17em] px-[3em]
-                shadow-2xl"
+                w-[85%] h-[17em] px-[3em] mobile:px-0
+                shadow-2xl mobile:gap-[1.5em]"
       >
         {isEmpty ? (
           <EmptyCart />
@@ -40,7 +49,7 @@ const CartForm: React.FC<ICartForm> = ({
           <table className="w-full">
             <thead className="text-left">
               <th className="w-[16%]"></th>
-              <th className="w-[16%]"></th>
+              <th className="w-[16%] mobile:hidden tablet:block"></th>
               <th className="w-[16%]">Product</th>
               <th className="w-[16%]">Price</th>
               <th className="w-[16%]">Quantity</th>
@@ -58,7 +67,7 @@ const CartForm: React.FC<ICartForm> = ({
                     x
                   </button>
                 </td>
-                <td className="align-middle">
+                <td className="align-middle mobile:hidden tablet:block">
                   <img src={headset} alt="" />
                 </td>
                 <td className="align-middle">{itemInStorage.name}</td>
@@ -69,8 +78,9 @@ const CartForm: React.FC<ICartForm> = ({
                     value={quantity}
                     onChange={({ target }) => setQuantity(target.value)}
                     className="
-                    rounded-full w-[5em] bg-background-2 border-none
-                    text-center pl-[1.5em]"
+                    rounded-full desktop:w-[5em] desktop:bg-background-2 tablet:bg-background-2
+                    border-none text-center desktop:pl-[1.5em] mobile:w-[3em] mobile:pl-1
+                    tablet:w-[5em] tablet:pl-[0.5em] mobile:bg-transparent mobile:border-none"
                   />
                 </td>
                 <td className="align-middle">${itemInStorage.subtotal}</td>
@@ -78,21 +88,21 @@ const CartForm: React.FC<ICartForm> = ({
             </tbody>
           </table>
         )}
-        <div className="flex gap-[1.5em]">
-        <button
+        <div className="flex gap-[1.5em] desktop:flex-row mobile:flex-col">
+          <button
             className={`
-            bg-primary w-44 h-11 justify-center
+            bg-primary w-44 h-9 justify-center
             items-center rounded-3xl font-bold text-background-1
             ${isEmpty ? "hidden" : loading && "hidden"}
             disabled:opacity-[0.5] disabled:cursor-not-allowed`}
             onClick={updateCart}
-            disabled={Number(quantity) === itemInStorage.quantity}
+            disabled={disableButton}
           >
             Update Cart
           </button>
           <button
             className={`
-              bg-primary w-44 h-11 justify-center
+              bg-primary w-44 h-9 justify-center
               items-center rounded-3xl font-bold text-background-1
               ${isEmpty ? "hidden" : (loading && "hidden")}`}
             onClick={() => navigate('/checkout')}

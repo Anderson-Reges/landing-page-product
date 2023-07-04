@@ -1,12 +1,14 @@
-import React, { MouseEventHandler } from "react";
+import React from "react";
 import Nav from "../components/Nav/Nav";
 import Footer from "../components/Footer";
 import angle from '../assets/angle-right-solid.svg';
 import IItemCart from "../interfaces/IItemCart";
 import { ItemContext } from "../context/ItemProvider";
 import CartForm from "../components/CartForm";
+import { useNavigate } from "react-router-dom";
 
 const Cart: React.FC = () => {
+  const navigate =  useNavigate()
   const { itemCart, setItemCart } = React.useContext(ItemContext);
   const [quantity, setQuantity] = React.useState<string>("")
   const [loading, setLoading] = React.useState<boolean>(false)
@@ -24,10 +26,11 @@ const Cart: React.FC = () => {
       }));
       setQuantity(quantity);
       setLoading(false);
+      navigate(0)
     }, 500);
   };
 
-  const deleteItem = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const deleteItem = () => {
     localStorage.removeItem("cart")
   }
 
@@ -43,15 +46,18 @@ const Cart: React.FC = () => {
       <Nav />
       <header
         className="
-        flex desktop:flex-col desktop:pt-[200px] desktop:pb-[90px]
-        bg-background-2"
+        flex desktop:flex-col desktop:pt-[200px] desktop:pb-[90px] desktop:h-[23.38em]
+        desktop:top-0 desktop:py-0 bg-background-2 mobile:h-[19em]
+        mobile:flex-col mobile:top-[7.5em] mobile:py-[60px] mobile:pt-[11em]"
       >
         <span
-          className="desktop:mx-[55px] text-5xl font-extrabold mb-3"
+          className="
+          desktop:mx-[55px] desktop:text-5xl desktop:font-extrabold
+          desktop:mb-3 mobile:text-4xl mobile:mx-[30px] mobile:font-extrabold"
         >
           CART
         </span>
-        <div className="desktop:mx-[55px] flex">
+        <div className="desktop:mx-[55px] flex mobile:mx-[30px]">
           <span className="text-background-3 opacity-[0.4] hover:opacity-[1] mr-1">
             <a href="/">Home</a>
           </span>
@@ -61,9 +67,9 @@ const Cart: React.FC = () => {
           >Cart</span>
         </div>
       </header>
-      <section>
+      <section className="mobile:py-[6em] desktop:pt-0">
         <div
-          className="py-[6em]"
+          className="desktop:py-[6em]"
         >
           <CartForm 
             itemInStorage={ itemInStorage }
@@ -73,7 +79,6 @@ const Cart: React.FC = () => {
             deleteItem={ deleteItem }
             loading={ loading }
           />
-          <div></div>
         </div>
       </section>
       <footer>
