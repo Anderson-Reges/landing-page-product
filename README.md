@@ -54,4 +54,5 @@ npm start
  * Toda informação da landing-page é meramente ilustrativo, este projeto apenas tem fins de aprimorar o conhecimento do autor.
 <hr>
 <h5 align="center">Made by me with ❤️</h5>
-[⬆️Voltar ao Topo](#LANDING-PAGE: PRODUCT)
+
+[⬆ Voltar ao topo](#landing-page-product)<br>
