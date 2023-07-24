@@ -5,13 +5,14 @@ import SlideProvider from '../context/SlideProvider';
 
 describe("Test Home component",() => {
 
-  it("Testing navbar rendering", () => {
+  const setup = () => renderWithRouter(
+    <SlideProvider>
+      <Home />
+    </SlideProvider>
+  );
 
-    renderWithRouter(
-      <SlideProvider>
-        <Home />
-      </SlideProvider>
-    )
+  it("Testing navbar rendering", () => {
+    setup();
 
     const home = screen.getByText(/home/i);
     const features = screen.getByRole('link', {
@@ -35,16 +36,24 @@ describe("Test Home component",() => {
   });
 
   it("Testing slide rendering", () => {
-    renderWithRouter(
-      <SlideProvider>
-        <Home />
-      </SlideProvider>
-    )
+    setup();
 
     const slideContainer = screen.getByTestId("slide-container");
 
     expect(slideContainer).toBeInTheDocument();
   });
 
-  
+  it("Testing features rendering", () => {
+    setup();
+
+    const features = screen.getByTestId("features");
+    const featuresLeft = screen.getByTestId("features-left");
+    const featuresRight = screen.getByTestId("features-right");
+    const featuresPhoneImg = screen.getByTestId("features-phone-img");
+
+    expect(features).toBeInTheDocument();
+    expect(featuresLeft).toBeInTheDocument();
+    expect(featuresRight).toBeInTheDocument();
+    expect(featuresPhoneImg).toBeInTheDocument();
+  });  
 })
