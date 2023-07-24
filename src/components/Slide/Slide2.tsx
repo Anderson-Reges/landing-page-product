@@ -7,6 +7,7 @@ const Slide2: React.FC<IClassNameSlide> = ({ containerClassName }) => {
     <div className={
       `relative top-[6.7em] ${containerClassName}`
       }
+      data-testid="slide-container"
     >
       <div
         className="bg-cover bg-no-repeat bg-center h-[496px]"

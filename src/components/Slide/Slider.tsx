@@ -57,7 +57,7 @@ const Slider: React.FC = () => {
   }, [setItemCart, setSlide]);
 
   return (
-    <div className="h-[604px]" data-testid="slide-container">
+    <div className="h-[604px]">
       {slide.slide1 && (
         <Slide1
           containerClassName={`absolute transition-opacity ${
