@@ -4,13 +4,14 @@ import Home from '../pages/Home';
 import SlideProvider from '../context/SlideProvider';
 
 describe("Test Home component",() => {
+  
+  renderWithRouter(
+    <SlideProvider>
+      <Home />
+    </SlideProvider>
+  )
 
   it("Testing navbar rendering", () => {
-    renderWithRouter(
-      <SlideProvider>
-        <Home />
-      </SlideProvider>
-    )
 
     const home = screen.getByText(/home/i);
     const features = screen.getByRole('link', {
@@ -33,4 +34,10 @@ describe("Test Home component",() => {
     expect(buttonNav).toBeInTheDocument();
   });
 
+  it("Testing Slide rendering", () => {
+    const slideContainer = screen.getByTestId("slide-container");
+    expect(slideContainer).toBeInTheDocument();
+  });
+
+  
 })
