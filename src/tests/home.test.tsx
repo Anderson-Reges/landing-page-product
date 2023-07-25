@@ -97,4 +97,18 @@ describe("Test Home component",(): void => {
     expect(btn).toBeInTheDocument();
   });
 
+  
+  it("Testing last-updates rendering", (): void => {
+    setup();
+
+    const lastUpdatesContainer = screen.getByTestId("last-updates-container");
+    const textBox = within(lastUpdatesContainer).getByRole('textbox');
+    const btn = screen.getByRole('button', {
+      name: /subscribe/i
+    });
+
+    expect(lastUpdatesContainer).toBeInTheDocument();
+    expect(textBox).toBeInTheDocument();
+    expect(btn).toBeInTheDocument();
+  });
 })
