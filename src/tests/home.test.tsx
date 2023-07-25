@@ -71,4 +71,15 @@ describe("Test Home component",(): void => {
     expect(specificInfoInfos).toBeInTheDocument();
   });
 
+  it("Testing tech-specs rendering", (): void => {
+    setup();
+
+    const techSpecsContainer = screen.getByTestId("tech-specs-container");
+    const techSpecsBoxTitle = screen.getByTestId("tech-specs-box-title");
+    const techSpecsBoxInfos = screen.getByTestId("tech-specs-box-infos");
+
+    expect(techSpecsContainer).toBeInTheDocument();
+    expect(techSpecsBoxTitle).toBeInTheDocument();
+    expect(techSpecsBoxInfos).toBeInTheDocument();
+  });
 })
