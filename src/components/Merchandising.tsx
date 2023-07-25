@@ -39,12 +39,14 @@ const Merchandising: React.FC = () => {
       flex desktop:h-60 mobile:h-[28em]
       flex-col justify-center items-center
       gap-[1em] mobile:py-[2em]"
+      data-testid="merchandising-container"
     >
       <h1
         className="
         font-bold desktop:text-3xl mobile:text-2xl
         desktop:w-[19em] mobile:w-[10em] text-center
         tablet:w-[20em] tablet:text-3xl"
+        data-testid="merchandising-heading"
       >
         FREE SHIPPING WITH EVERY PURCHASE. TAKE ADVANTAGE OF OUR OFFERS.
       </h1>
@@ -59,6 +61,7 @@ const Merchandising: React.FC = () => {
         w-52 desktop:h-11 rounded-3xl mobile:h-11
         font-semibold text-background-1 transition ease-in-out 
         delay-150 hover:-translate-y-1 hover:scale-110 tablet:h-[6em]"
+        data-testid="merchandising-btn"
         onClick={ checkStorage }
       >
         PURCHASE SEADOT

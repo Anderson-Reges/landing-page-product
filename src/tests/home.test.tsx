@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react';
+import { screen, within } from '@testing-library/react';
 import { renderWithRouter } from './renderWithRouter';
 import Home from '../pages/Home';
 import SlideProvider from '../context/SlideProvider';
@@ -82,4 +82,19 @@ describe("Test Home component",(): void => {
     expect(techSpecsBoxTitle).toBeInTheDocument();
     expect(techSpecsBoxInfos).toBeInTheDocument();
   });
+
+  it("Testing merchandising rendering", (): void => {
+    setup();
+
+    const merchandisingContainer = screen.getByTestId('merchandising-container');
+    const merchandisingHeading = screen.getByTestId('merchandising-heading');
+    const btn = within(merchandisingContainer).getByRole('button', {
+      name: /purchase seadot/i
+    });
+
+    expect(merchandisingContainer).toBeInTheDocument();
+    expect(merchandisingHeading).toBeInTheDocument();
+    expect(btn).toBeInTheDocument();
+  });
+
 })
