@@ -96,7 +96,6 @@ describe("Test Home component",(): void => {
     expect(merchandisingHeading).toBeInTheDocument();
     expect(btn).toBeInTheDocument();
   });
-
   
   it("Testing last-updates rendering", (): void => {
     setup();
@@ -110,5 +109,29 @@ describe("Test Home component",(): void => {
     expect(lastUpdatesContainer).toBeInTheDocument();
     expect(textBox).toBeInTheDocument();
     expect(btn).toBeInTheDocument();
+  });
+
+  it("Testing footer rendering", (): void => {
+    setup();
+
+    const footerContainer = screen.getByTestId("footer-container");
+    const footerBoxTop = screen.getByTestId("footer-box-top");
+    const footerBoxBottom = screen.getByTestId("footer-box-bottom");
+    const footerBoxTopInfos = screen.getByTestId('footer-box-top-info');
+    const footerBoxTopLinks = screen.getByTestId("footer-box-top-links");
+    const footerBoxTopForm = screen.getByTestId("footer-box-top-form");
+    const footerBoxBottomText = screen.getByText(/made by/i);
+    const footerBoxBottomLink = screen.getByRole('link', {
+      name: /@anderson-reges/i
+    });
+
+    expect(footerContainer).toBeInTheDocument();
+    expect(footerBoxTop).toBeInTheDocument();
+    expect(footerBoxBottom).toBeInTheDocument();
+    expect(footerBoxTopInfos).toBeInTheDocument();
+    expect(footerBoxTopLinks).toBeInTheDocument();
+    expect(footerBoxTopForm).toBeInTheDocument();
+    expect(footerBoxBottomText).toBeInTheDocument();
+    expect(footerBoxBottomLink).toBeInTheDocument();
   });
 })
