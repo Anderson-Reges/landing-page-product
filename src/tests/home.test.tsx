@@ -3,7 +3,7 @@ import { renderWithRouter } from './renderWithRouter';
 import Home from '../pages/Home';
 import SlideProvider from '../context/SlideProvider';
 
-describe("Test Home component",() => {
+describe("Test Home component",(): void => {
 
   const setup = () => renderWithRouter(
     <SlideProvider>
@@ -11,7 +11,7 @@ describe("Test Home component",() => {
     </SlideProvider>
   );
 
-  it("Testing navbar rendering", () => {
+  it("Testing navbar rendering", (): void => {
     setup();
 
     const home = screen.getByText(/home/i);
@@ -35,7 +35,7 @@ describe("Test Home component",() => {
     expect(buttonNav).toBeInTheDocument();
   });
 
-  it("Testing slide rendering", () => {
+  it("Testing slide rendering", (): void => {
     setup();
 
     const slideContainer = screen.getByTestId("slide-container");
@@ -43,7 +43,7 @@ describe("Test Home component",() => {
     expect(slideContainer).toBeInTheDocument();
   });
 
-  it("Testing features rendering", () => {
+  it("Testing features rendering", (): void => {
     setup();
 
     const features = screen.getByTestId("features");
@@ -55,5 +55,20 @@ describe("Test Home component",() => {
     expect(featuresLeft).toBeInTheDocument();
     expect(featuresRight).toBeInTheDocument();
     expect(featuresPhoneImg).toBeInTheDocument();
-  });  
+  });
+
+  it("Testing specific-info rendering", (): void => {
+    setup();
+
+    const specificInfoContainer = screen.getByTestId("specific-info-container");
+    const specificInfoBox = screen.getByTestId("specific-info-info-box");
+    const specificInfoBoxTitle = screen.getByTestId("specific-info-title-box");
+    const specificInfoInfos = screen.getByTestId("specific-info-infos");
+
+    expect(specificInfoContainer).toBeInTheDocument();
+    expect(specificInfoBox).toBeInTheDocument();
+    expect(specificInfoBoxTitle).toBeInTheDocument();
+    expect(specificInfoInfos).toBeInTheDocument();
+  });
+
 })
