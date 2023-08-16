@@ -198,6 +198,22 @@ describe("Testing userEvent in component Home", (): void => {
     expect(textBox).toHaveValue("test@test.com");
   });
 
+  it("Tests if it is possible to type in the text box in footer form", async (): Promise<void> => {
+    const { user } = setup();
+
+    const textBox1 = screen.getByTestId('footer-box-top-form-input-1');
+    const textBox2 = screen.getByTestId('footer-box-top-form-input-2');
+
+    expect(textBox1).toBeInTheDocument();
+    expect(textBox2).toBeInTheDocument();
+
+    await user.type(textBox1,"test@test.com");
+    await user.type(textBox2,"test@test.com");
+
+    expect(textBox1).toHaveValue("test@test.com");
+    expect(textBox1).toHaveValue("test@test.com");
+  });
+
   afterEach(() => {
     localStorage.clear();
     cleanup();

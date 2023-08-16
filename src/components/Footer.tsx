@@ -65,10 +65,12 @@ const Footer: React.FC = () => {
             type="text"
             className="border-none rounded text-background-3"
             placeholder="Your Email"
+            data-testid="footer-box-top-form-input-1"
           />
           <textarea
             className="border-none h-[6em] rounded text-background-3 resize-none"
             placeholder="Your Message"
+            data-testid="footer-box-top-form-input-2"
           />
           <button className="bg-primary rounded w-[35%] h-10 font-bold tracking-widest">SUBMIT</button>
         </form>
