@@ -171,7 +171,7 @@ describe("Testing userEvent in component Home", (): void => {
     await user.click(btn);
 
     expect(window.location.pathname).toBe('/cart');
-  })
+  });
 
   it("Testing the click on the button in the Merchandising", async (): Promise<void> => {
     const { user } = setup();
@@ -183,7 +183,20 @@ describe("Testing userEvent in component Home", (): void => {
     await user.click(btn);
 
     expect(window.location.pathname).toBe('/cart');
-  })
+  });
+
+  it("Tests if it is possible to type in the text box in last updates", async (): Promise<void> => {
+    const { user } = setup();
+
+    const view = screen.getByTestId('last-updates-container');
+    const textBox = within(view).getByRole('textbox');
+
+    expect(textBox).toBeInTheDocument();
+
+    await user.type(textBox,"test@test.com");
+
+    expect(textBox).toHaveValue("test@test.com");
+  });
 
   afterEach(() => {
     localStorage.clear();
