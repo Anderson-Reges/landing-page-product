@@ -73,6 +73,7 @@ const Slider: React.FC = () => {
         />
       )}
       <button
+        data-testid="slide-button-purchase"
         className="
             absolute desktop:top-[27em] mobile:top-[28em]
             desktop:ml-20 mobile:ml-3 bg-background-1 

@@ -1,21 +1,12 @@
 import 'jest-localstorage-mock';
-import { screen, within, cleanup, render, fireEvent } from '@testing-library/react';
-import SlideProvider from '../context/SlideProvider';
-import ItemProvider from '../context/ItemProvider';
+import { screen, within, cleanup } from '@testing-library/react';
 import App from '../App';
-import { BrowserRouter } from 'react-router-dom';
+import { renderWithRouter } from './renderWithRouter';
 
 
 describe("Testing the rendering of the Home component", (): void => {
 
-  const setup = () => render(
-    <ItemProvider>
-      <SlideProvider>
-        <App />
-      </SlideProvider>
-    </ItemProvider>,
-    { wrapper: BrowserRouter }
-  );
+  const setup = () => renderWithRouter(<App />)
 
   it("Testing navbar rendering", (): void => {
     setup();
@@ -144,14 +135,7 @@ describe("Testing the rendering of the Home component", (): void => {
 
 describe("Testing userEvent in component Home", (): void => {
 
-  const setup = () => render(
-    <ItemProvider>
-      <SlideProvider>
-        <App />
-      </SlideProvider>
-    </ItemProvider>,
-    { wrapper: BrowserRouter }
-  );
+  const setup = () => renderWithRouter(<App />)
 
   beforeEach(() => {
     localStorage.setItem('cart', JSON.stringify(
@@ -164,18 +148,30 @@ describe("Testing userEvent in component Home", (): void => {
     ));
   });
 
-  it("Testing the click on the buy button in the navbar", (): void => {
-    setup();
-  
+  it("Testing the click on the buy button in the navbar", async (): Promise<void> => {
+    const { user } = setup();
+
     const btn = screen.getByRole('button', {
       name: /buy now/i
     });
     expect(btn).toBeInTheDocument();
 
-    fireEvent.click(btn);
+    await user.click(btn);
 
     expect(window.location.pathname).toBe('/cart');
   });
+
+  it("Testing the click on the button in the Slide", async (): Promise<void> => {
+    const { user } = setup();
+
+    const btn = screen.getByTestId('slide-button-purchase');
+
+    expect(btn).toBeInTheDocument();
+
+    await user.click(btn);
+
+    expect(window.location.pathname).toBe('/cart');
+  })
 
   afterEach(() => {
     localStorage.clear();
