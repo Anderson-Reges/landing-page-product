@@ -173,6 +173,18 @@ describe("Testing userEvent in component Home", (): void => {
     expect(window.location.pathname).toBe('/cart');
   })
 
+  it("Testing the click on the button in the Merchandising", async (): Promise<void> => {
+    const { user } = setup();
+
+    const btn = screen.getByTestId('merchandising-btn');
+
+    expect(btn).toBeInTheDocument();
+
+    await user.click(btn);
+
+    expect(window.location.pathname).toBe('/cart');
+  })
+
   afterEach(() => {
     localStorage.clear();
     cleanup();
