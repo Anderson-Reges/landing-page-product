@@ -1,14 +1,20 @@
-import { screen, within } from '@testing-library/react';
-import { renderWithRouter } from './renderWithRouter';
-import Home from '../pages/Home';
+import 'jest-localstorage-mock';
+import { screen, within, cleanup, render, fireEvent } from '@testing-library/react';
 import SlideProvider from '../context/SlideProvider';
+import ItemProvider from '../context/ItemProvider';
+import App from '../App';
+import { BrowserRouter } from 'react-router-dom';
 
-describe("Test Home component",(): void => {
 
-  const setup = () => renderWithRouter(
-    <SlideProvider>
-      <Home />
-    </SlideProvider>
+describe("Testing the rendering of the Home component", (): void => {
+
+  const setup = () => render(
+    <ItemProvider>
+      <SlideProvider>
+        <App />
+      </SlideProvider>
+    </ItemProvider>,
+    { wrapper: BrowserRouter }
   );
 
   it("Testing navbar rendering", (): void => {
@@ -96,7 +102,7 @@ describe("Test Home component",(): void => {
     expect(merchandisingHeading).toBeInTheDocument();
     expect(btn).toBeInTheDocument();
   });
-  
+
   it("Testing last-updates rendering", (): void => {
     setup();
 
@@ -134,4 +140,46 @@ describe("Test Home component",(): void => {
     expect(footerBoxBottomText).toBeInTheDocument();
     expect(footerBoxBottomLink).toBeInTheDocument();
   });
-})
+});
+
+describe("Testing userEvent in component Home", (): void => {
+
+  const setup = () => render(
+    <ItemProvider>
+      <SlideProvider>
+        <App />
+      </SlideProvider>
+    </ItemProvider>,
+    { wrapper: BrowserRouter }
+  );
+
+  beforeEach(() => {
+    localStorage.setItem('cart', JSON.stringify(
+      {
+        name: "Sea Dot Arcdov",
+        price: 250,
+        quantity: 1,
+        subtotal: 250,
+      }
+    ));
+  });
+
+  it("Testing the click on the buy button in the navbar", (): void => {
+    setup();
+  
+    const btn = screen.getByRole('button', {
+      name: /buy now/i
+    });
+    expect(btn).toBeInTheDocument();
+
+    fireEvent.click(btn);
+
+    expect(window.location.pathname).toBe('/cart');
+  });
+
+  afterEach(() => {
+    localStorage.clear();
+    cleanup();
+  });
+
+});

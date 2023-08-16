@@ -29,8 +29,8 @@ const Merchandising: React.FC = () => {
   };
 
   React.useEffect(() => {
-    const cartStorage = JSON.parse(localStorage.getItem("cart") as string);
-    cartStorage && setItemCart(cartStorage);
+    const cartStorage = localStorage.getItem("cart");
+    cartStorage && setItemCart(JSON.parse(cartStorage));
   }, [setItemCart]);
 
   return (

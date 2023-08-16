@@ -4,7 +4,6 @@ import ICartForm from "../interfaces/ICartForm";
 import Loading from "./LoadingComponent";
 import EmptyCart from "./EmptyCartComponent";
 import { useNavigate } from "react-router-dom";
-import IItemCart from "../interfaces/IItemCart";
 
 const CartForm: React.FC<ICartForm> = ({
   itemInStorage,
@@ -17,20 +16,22 @@ const CartForm: React.FC<ICartForm> = ({
   const navigate = useNavigate()
   const [disableButton, setDisableButton] = React.useState<boolean>(true)
   const [isEmpty, setIsEmpty] = React.useState<boolean>(false);
-
   React.useEffect(() => {
-    const local: IItemCart = JSON.parse(localStorage.getItem("cart") as string);
+    const cart = localStorage.getItem("cart");
 
-    if (!local || Number(local.quantity) === 0) {
+    if (!cart || Number(JSON.parse(cart).quantity) === 0) {
       setIsEmpty(true);
       localStorage.removeItem("cart")
-    }
+    };
 
-    if (Number(quantity) !== Number(local.quantity)) {
-      setDisableButton(false)
-    } else {
-      setDisableButton(true)
-    }
+    if (quantity) {
+      const local = JSON.parse(cart as string);
+      if (Number(quantity) !== Number(local.quantity)) {
+        setDisableButton(false)
+      } else {
+        setDisableButton(true)
+      }
+    };
 
   }, [quantity]);
 
@@ -71,8 +72,8 @@ const CartForm: React.FC<ICartForm> = ({
                 <td className="align-middle mobile:hidden tablet:block">
                   <img src={headset} alt="" />
                 </td>
-                <td className="align-middle">{itemInStorage.name}</td>
-                <td className="align-middle">${itemInStorage.price}</td>
+                <td className="align-middle">{itemInStorage && itemInStorage.name}</td>
+                <td className="align-middle">${itemInStorage && itemInStorage.price}</td>
                 <td className="align-middle">
                   <input
                     type="number"
@@ -84,7 +85,7 @@ const CartForm: React.FC<ICartForm> = ({
                     tablet:w-[5em] tablet:pl-[0.5em] mobile:bg-transparent mobile:border-none"
                   />
                 </td>
-                <td className="align-middle">${itemInStorage.subtotal}</td>
+                <td className="align-middle">${itemInStorage && itemInStorage.subtotal}</td>
               </tr>
             </tbody>
           </table>

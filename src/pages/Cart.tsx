@@ -8,11 +8,10 @@ import CartForm from "../components/CartForm";
 import { useNavigate } from "react-router-dom";
 
 const Cart: React.FC = () => {
-  const navigate =  useNavigate()
+  const navigate =  useNavigate();
   const { itemCart, setItemCart } = React.useContext(ItemContext);
-  const [quantity, setQuantity] = React.useState<string>("")
-  const [loading, setLoading] = React.useState<boolean>(false)
-  const itemInStorage: IItemCart = JSON.parse(localStorage.getItem('cart') as string)
+  const [quantity, setQuantity] = React.useState<string>("");
+  const [loading, setLoading] = React.useState<boolean>(false);
 
   const updateCart = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -35,9 +34,10 @@ const Cart: React.FC = () => {
   }
 
   React.useEffect(() => {
-    const updatedItem: IItemCart = JSON.parse(localStorage.getItem('cart') as string)
+    const updatedItem = localStorage.getItem('cart');
     if (updatedItem){
-      setQuantity(updatedItem.quantity + "")
+      const local: IItemCart = JSON.parse(updatedItem);
+      setQuantity(local.quantity + "")
     }
   }, [])
 
@@ -72,7 +72,10 @@ const Cart: React.FC = () => {
           className="desktop:py-[6em]"
         >
           <CartForm 
-            itemInStorage={ itemInStorage }
+            itemInStorage={
+              localStorage.getItem('cart')
+                && JSON.parse(localStorage.getItem('cart') as string)
+            }
             quantity={ quantity }
             setQuantity={ setQuantity }
             updateCart={ updateCart }
