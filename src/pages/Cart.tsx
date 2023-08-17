@@ -58,8 +58,11 @@ const Cart: React.FC = () => {
           CART
         </span>
         <div className="desktop:mx-[55px] flex mobile:mx-[30px]">
-          <span className="text-background-3 opacity-[0.4] hover:opacity-[1] mr-1">
-            <a href="/">Home</a>
+          <span
+            className="text-background-3 opacity-[0.4] hover:opacity-[1] mr-1 cursor-pointer"
+            onClick={() => navigate('/')}
+          >
+            Home
           </span>
           <img src={angle} alt="angle-right" className="w-[0.6em]" />
           <span
@@ -67,9 +70,10 @@ const Cart: React.FC = () => {
           >Cart</span>
         </div>
       </header>
-      <section className="mobile:py-[6em] desktop:pt-0">
+      <section className="mobile:py-[6em] desktop:pt-0" data-testid="cart-container">
         <div
           className="desktop:py-[6em]"
+          data-testid="cart-form-container"
         >
           <CartForm 
             itemInStorage={

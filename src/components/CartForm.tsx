@@ -42,6 +42,7 @@ const CartForm: React.FC<ICartForm> = ({
                 flex flex-col justify-center items-center
                 w-[85%] h-[17em] px-[3em] mobile:px-0
                 shadow-2xl mobile:gap-[1.5em]"
+        data-testid="cart-form-box"
       >
         {isEmpty ? (
           <EmptyCart />
