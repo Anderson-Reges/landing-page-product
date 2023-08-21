@@ -123,6 +123,13 @@ describe("Testing cart page with item in cart", (): void => {
     const priceCell = screen.getByTestId('price-cell');
     const subtotalCell = screen.getByTestId('subtotal-cell')
     const input = screen.getByRole('spinbutton');
+    const btnFormContainer = screen.getByTestId('form-btn-container');
+    const btnUpdate = screen.getByRole('button', {
+      name: /update cart/i
+    });
+    const btnCheckout = screen.getByRole('button', {
+      name: /proceed to checkout/i
+    });
     const footerContainer = screen.getByTestId("footer-container");
     const footerBoxTop = screen.getByTestId("footer-box-top");
     const footerBoxBottom = screen.getByTestId("footer-box-bottom");
@@ -149,6 +156,9 @@ describe("Testing cart page with item in cart", (): void => {
     expect(img).toBeInTheDocument();
     expect(priceCell).toBeInTheDocument();
     expect(subtotalCell).toBeInTheDocument();
+    expect(btnFormContainer).toBeInTheDocument();
+    expect(btnUpdate).toBeInTheDocument();
+    expect(btnCheckout).toBeInTheDocument();
     expect(footerContainer).toBeInTheDocument();
     expect(footerBoxTop).toBeInTheDocument();
     expect(footerBoxBottom).toBeInTheDocument();

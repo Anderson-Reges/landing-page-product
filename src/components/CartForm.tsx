@@ -91,7 +91,10 @@ const CartForm: React.FC<ICartForm> = ({
             </tbody>
           </table>
         )}
-        <div className="flex gap-[1.5em] desktop:flex-row mobile:flex-col">
+        <div
+          className="flex gap-[1.5em] desktop:flex-row mobile:flex-col"
+          data-testid="form-btn-container"
+        >
           <button
             className={`
             bg-primary w-44 h-9 justify-center
