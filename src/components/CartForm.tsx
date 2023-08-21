@@ -74,7 +74,7 @@ const CartForm: React.FC<ICartForm> = ({
                   <img src={headset} alt="" />
                 </td>
                 <td className="align-middle">{itemInStorage && itemInStorage.name}</td>
-                <td className="align-middle">${itemInStorage && itemInStorage.price}</td>
+                <td className="align-middle" data-testid="price-cell">${itemInStorage && itemInStorage.price}</td>
                 <td className="align-middle">
                   <input
                     type="number"
@@ -86,7 +86,7 @@ const CartForm: React.FC<ICartForm> = ({
                     tablet:w-[5em] tablet:pl-[0.5em] mobile:bg-transparent mobile:border-none"
                   />
                 </td>
-                <td className="align-middle">${itemInStorage && itemInStorage.subtotal}</td>
+                <td className="align-middle" data-testid="subtotal-cell">${itemInStorage && itemInStorage.subtotal}</td>
               </tr>
             </tbody>
           </table>
