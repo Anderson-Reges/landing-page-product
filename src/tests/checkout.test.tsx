@@ -1,6 +1,6 @@
 import App from '../App';
 import { renderWithRouter } from './renderWithRouter';
-import { screen, within } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 
 import 'jest-localstorage-mock';
 
