@@ -1,12 +1,13 @@
-import 'jest-localstorage-mock';
 import App from '../App';
 import { renderWithRouter } from './renderWithRouter';
 import { screen, within } from '@testing-library/react';
 
+import 'jest-localstorage-mock';
+
 describe("Testing cart page without item in cart", (): void => {
 
   const setup = () => renderWithRouter(<App />, { route: '/cart' })
-  
+
   it("Testing page component renderings", (): void => {
     setup();
 
@@ -92,6 +93,10 @@ describe("Testing cart page with item in cart", (): void => {
     ));
   });
 
+  afterEach(() => {
+    localStorage.clear();
+  });
+
   it("Testing page component renderings", () => {
     setup();
 
@@ -169,8 +174,42 @@ describe("Testing cart page with item in cart", (): void => {
     expect(footerBoxBottomLink).toBeInTheDocument();
   });
 
-  afterEach(() => {
-    localStorage.clear();
-  });
+  it("Testing userEvent on form buttons", async (): Promise<void> => {
+    const { user } = setup();
+
+    const KEY = 'cart',
+      VALUE = {
+        name: "Sea Dot Arcdov",
+        price: 250,
+        quantity: "2",
+        subtotal: 500,
+      };
+
+    const input = screen.getByRole('spinbutton');
+    const btnUpdate = screen.getByRole('button', {
+      name: /update cart/i
+    });
+    const btnCheckout = screen.getByRole('button', {
+      name: /proceed to checkout/i
+    });
+    expect(input).toBeInTheDocument();
+    expect(btnUpdate).toBeInTheDocument();
+    expect(btnCheckout).toBeInTheDocument();
+    expect(btnUpdate).toHaveAttribute("disabled");
+
+    await user.clear(input);
+    await user.type(input, "2");
+
+    expect(btnUpdate).not.toHaveAttribute("disabled");
+    expect(input).toHaveValue(2);
+
+    await user.click(btnUpdate);
+
+    expect(localStorage.setItem).toHaveBeenCalledWith(KEY, JSON.stringify(VALUE));
+
+    await user.click(btnCheckout);
+
+    expect(window.location.pathname).toBe('/checkout');
+  })
 
 });

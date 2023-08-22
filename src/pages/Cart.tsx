@@ -8,7 +8,7 @@ import CartForm from "../components/CartForm";
 import { useNavigate } from "react-router-dom";
 
 const Cart: React.FC = () => {
-  const navigate =  useNavigate();
+  const navigate = useNavigate();
   const { itemCart, setItemCart } = React.useContext(ItemContext);
   const [quantity, setQuantity] = React.useState<string>("");
   const [loading, setLoading] = React.useState<boolean>(false);
@@ -16,17 +16,15 @@ const Cart: React.FC = () => {
   const updateCart = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     setLoading(true);
-  
-    setTimeout(() => {
-      localStorage.setItem("cart", JSON.stringify({
-        ...itemCart,
-        quantity: quantity,
-        subtotal: itemCart.price * Number(quantity)
-      }));
-      setQuantity(quantity);
-      setLoading(false);
-      navigate(0)
-    }, 500);
+
+    localStorage.setItem("cart", JSON.stringify({
+      ...itemCart,
+      quantity: quantity,
+      subtotal: itemCart.price * Number(quantity)
+    }));
+    setQuantity(quantity);
+    setLoading(false);
+    navigate(0)
   };
 
   const deleteItem = () => {
@@ -35,7 +33,7 @@ const Cart: React.FC = () => {
 
   React.useEffect(() => {
     const updatedItem = localStorage.getItem('cart');
-    if (updatedItem){
+    if (updatedItem) {
       const local: IItemCart = JSON.parse(updatedItem);
       setQuantity(local.quantity + "")
     }
@@ -75,16 +73,16 @@ const Cart: React.FC = () => {
           className="desktop:py-[6em]"
           data-testid="cart-form-container"
         >
-          <CartForm 
+          <CartForm
             itemInStorage={
               localStorage.getItem('cart')
-                && JSON.parse(localStorage.getItem('cart') as string)
+              && JSON.parse(localStorage.getItem('cart') as string)
             }
-            quantity={ quantity }
-            setQuantity={ setQuantity }
-            updateCart={ updateCart }
-            deleteItem={ deleteItem }
-            loading={ loading }
+            quantity={quantity}
+            setQuantity={setQuantity}
+            updateCart={updateCart}
+            deleteItem={deleteItem}
+            loading={loading}
           />
         </div>
       </section>
