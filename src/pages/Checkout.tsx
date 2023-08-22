@@ -91,6 +91,7 @@ const Checkout: React.FC = () => {
                     className="rounded-full"
                     value={formFields.firstName}
                     onChange={handleInputChange}
+                    data-testid="inputs-checkout"
                   />
                 </label>
                 <label htmlFor="" className="flex flex-col font-semibold">
@@ -102,6 +103,7 @@ const Checkout: React.FC = () => {
                     className="rounded-full"
                     value={formFields.lastName}
                     onChange={handleInputChange}
+                    data-testid="inputs-checkout"
                   />
                 </label>
               </div>
@@ -115,6 +117,7 @@ const Checkout: React.FC = () => {
                 className="rounded-full"
                 value={formFields.country}
                 onChange={handleInputChange}
+                data-testid="inputs-checkout"
               />
               <label htmlFor="" className="font-semibold">
                 Street address
@@ -127,11 +130,13 @@ const Checkout: React.FC = () => {
                 id="streetAddress"
                 value={formFields.streetAddress}
                 onChange={handleInputChange}
+                data-testid="inputs-checkout"
               />
               <input
                 type="text"
                 className="rounded-full"
                 placeholder="Apartment, suite, unit, etc. (Optional)"
+                data-testid="inputs-checkout"
               />
               <label htmlFor="" className="font-semibold">
                 Town / City
@@ -143,6 +148,7 @@ const Checkout: React.FC = () => {
                 className="rounded-full"
                 value={formFields.townCity}
                 onChange={handleInputChange}
+                data-testid="inputs-checkout"
               />
               <label htmlFor="" className="font-semibold">
                 Postcode
@@ -157,6 +163,7 @@ const Checkout: React.FC = () => {
                 }`}
                 value={formFields.postcode}
                 onChange={handleInputChange}
+                data-testid="inputs-checkout"
               />
               <label htmlFor="" className="font-semibold">
                 Phone
@@ -168,6 +175,7 @@ const Checkout: React.FC = () => {
                 className="rounded-full"
                 value={formFields.phone}
                 onChange={handleInputChange}
+                data-testid="inputs-checkout"
               />
               <label htmlFor="" className="font-semibold">
                 Email address
@@ -182,6 +190,7 @@ const Checkout: React.FC = () => {
                 }`}
                 value={formFields.emailAddress}
                 onChange={handleInputChange}
+                data-testid="inputs-checkout"
               />
             </div>
             <div className="flex flex-col desktop:w-[50%] mobile:w-full">
@@ -198,6 +207,7 @@ const Checkout: React.FC = () => {
                   rows={7}
                   cols={50}
                   placeholder="Notes about your order"
+                  data-testid="inputs-checkout"
                 ></textarea>
               </label>
             </div>
@@ -213,15 +223,15 @@ const Checkout: React.FC = () => {
             </thead>
             <tbody>
               <tr className="flex justify-around text-center">
-                <td className="w-[33%]">
+                <td className="w-[33%]" data-testid="name-quantity-cell">
                   {(itemInStorage && itemInStorage.name) +
                     " x " +
                     (itemInStorage && itemInStorage.quantity)}
                 </td>
-                <td className="w-[33%]">
+                <td className="w-[33%]" data-testid="subtotal-cell">
                   ${itemInStorage && itemInStorage.subtotal}
                 </td>
-                <td className="w-[33%]">
+                <td className="w-[33%]" data-testid="total-cell">
                   $
                   {itemInStorage &&
                     itemInStorage.price *

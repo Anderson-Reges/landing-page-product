@@ -5,9 +5,10 @@ const EmptyCart: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className='flex flex-col gap-[2em]'>
+    <div className='flex flex-col gap-[2em]' data-testid="cart-empty-info-box">
       <div
         className='font-bold bg-background-2 w-full'
+        data-testid="cart-empty-info-text"
       >
         Your cart is currently empty.
       </div>

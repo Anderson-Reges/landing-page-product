@@ -7,8 +7,12 @@ const TechSpecs: React.FC = () => {
       className='
       flex flex-col justify-center items-center
       py-20 gap-[2em] bg-background-2'
+      data-testid="tech-specs-container"
     >
-      <div className='flex flex-col justify-center items-center gap-[1em]'>
+      <div
+        className='flex flex-col justify-center items-center gap-[1em]'
+        data-testid="tech-specs-box-title"
+      >
         <h1
           className='font-bold text-4xl'
         >
@@ -28,6 +32,7 @@ const TechSpecs: React.FC = () => {
         justify-evenly w-full desktop:items-baseline
         mobile:items-center desktop:gap-0 mobile:gap-[2em]
         tablet:flex-row tablet:items-start tablet:px-[2em] tablet:text-sm'
+        data-testid="tech-specs-box-infos"
       >
         <div>
           <h4 className='font-semibold'>General</h4>

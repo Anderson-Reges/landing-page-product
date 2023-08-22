@@ -6,13 +6,11 @@ import SVGComponent from "../SVGComponent";
 import iconsSVG from "../../assets/network-icons-svg.json";
 import IconSVG from "../../interfaces/ISvg";
 import { useLocation, useNavigate } from "react-router-dom";
-import IItemCart from "../../interfaces/IItemCart";
 
 const NavTop: React.FC = () => {
   const icons: IconSVG[] = iconsSVG;
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const itemInStorage: IItemCart = JSON.parse(localStorage.getItem("cart") as string)
 
   return (
     <div className="flex justify-around border-b desktop:h-11 mobile:h-14">
@@ -61,7 +59,7 @@ const NavTop: React.FC = () => {
               onClick={() => navigate("/cart")}
               className="cursor-pointer desktop:block mobile:hidden laptop:block"
             />
-            {itemInStorage && (
+            {localStorage.getItem("cart") && (
               <>
                 <span
                   className="w-3 h-3 bg-primary rounded-full

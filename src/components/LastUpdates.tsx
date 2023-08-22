@@ -10,6 +10,7 @@ const LastUpdates: React.FC = () => {
         flex desktop:flex-row justify-center items-center gap-[2em]
         mobile:flex-col'
         style={{ backgroundImage: `url(${headset2})` }}
+        data-testid="last-updates-container"
       >
         <h1
           className='text-background-1 font-bold text-4xl mobile:text-center'

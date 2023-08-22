@@ -14,6 +14,7 @@ const Features: React.FC = () => {
       className='
       flex justify-center items-center
       px-[3em] pt-[3em] desktop:pb-0 mobile:pb-[3em]'
+      data-testid="features"
     >
       <div
         className='
@@ -21,7 +22,10 @@ const Features: React.FC = () => {
         items-center justify-evenly w-screen
         mobile:flex-col mobile:gap-[2em] tablet:flex-row'
       >
-        <div className='flex flex-col desktop:gap-[4em] mobile:gap-[2em]'>
+        <div
+          className='flex flex-col desktop:gap-[4em] mobile:gap-[2em]'
+          data-testid="features-left"
+        >
           <FeaturesLeft
             title='Signal'
             text='Wireless connection up to 10 meters'
@@ -38,8 +42,12 @@ const Features: React.FC = () => {
           desktop:flex bg-center bg-cover
           h-[496px] w-[380px] mobile:hidden tablet:hidden"
           style={{ backgroundImage: `url(${headset})` }}
+          data-testid="features-phone-img"
         ></div>
-        <div className='flex flex-col desktop:gap-[4em] mobile:gap-[2em]'>
+        <div
+          className='flex flex-col desktop:gap-[4em] mobile:gap-[2em]'
+          data-testid="features-right"
+        >
           <FeaturesRight
             title='Rapid charge'
             text='Equipped with turbo charge'

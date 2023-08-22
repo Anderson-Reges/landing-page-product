@@ -8,26 +8,23 @@ import CartForm from "../components/CartForm";
 import { useNavigate } from "react-router-dom";
 
 const Cart: React.FC = () => {
-  const navigate =  useNavigate()
+  const navigate = useNavigate();
   const { itemCart, setItemCart } = React.useContext(ItemContext);
-  const [quantity, setQuantity] = React.useState<string>("")
-  const [loading, setLoading] = React.useState<boolean>(false)
-  const itemInStorage: IItemCart = JSON.parse(localStorage.getItem('cart') as string)
+  const [quantity, setQuantity] = React.useState<string>("");
+  const [loading, setLoading] = React.useState<boolean>(false);
 
   const updateCart = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     setLoading(true);
-  
-    setTimeout(() => {
-      localStorage.setItem("cart", JSON.stringify({
-        ...itemCart,
-        quantity: quantity,
-        subtotal: itemCart.price * Number(quantity)
-      }));
-      setQuantity(quantity);
-      setLoading(false);
-      navigate(0)
-    }, 500);
+
+    localStorage.setItem("cart", JSON.stringify({
+      ...itemCart,
+      quantity: quantity,
+      subtotal: itemCart.price * Number(quantity)
+    }));
+    setQuantity(quantity);
+    setLoading(false);
+    navigate(0)
   };
 
   const deleteItem = () => {
@@ -35,9 +32,10 @@ const Cart: React.FC = () => {
   }
 
   React.useEffect(() => {
-    const updatedItem: IItemCart = JSON.parse(localStorage.getItem('cart') as string)
-    if (updatedItem){
-      setQuantity(updatedItem.quantity + "")
+    const updatedItem = localStorage.getItem('cart');
+    if (updatedItem) {
+      const local: IItemCart = JSON.parse(updatedItem);
+      setQuantity(local.quantity + "")
     }
   }, [])
 
@@ -58,8 +56,11 @@ const Cart: React.FC = () => {
           CART
         </span>
         <div className="desktop:mx-[55px] flex mobile:mx-[30px]">
-          <span className="text-background-3 opacity-[0.4] hover:opacity-[1] mr-1">
-            <a href="/">Home</a>
+          <span
+            className="text-background-3 opacity-[0.4] hover:opacity-[1] mr-1 cursor-pointer"
+            onClick={() => navigate('/')}
+          >
+            Home
           </span>
           <img src={angle} alt="angle-right" className="w-[0.6em]" />
           <span
@@ -67,17 +68,21 @@ const Cart: React.FC = () => {
           >Cart</span>
         </div>
       </header>
-      <section className="mobile:py-[6em] desktop:pt-0">
+      <section className="mobile:py-[6em] desktop:pt-0" data-testid="cart-container">
         <div
           className="desktop:py-[6em]"
+          data-testid="cart-form-container"
         >
-          <CartForm 
-            itemInStorage={ itemInStorage }
-            quantity={ quantity }
-            setQuantity={ setQuantity }
-            updateCart={ updateCart }
-            deleteItem={ deleteItem }
-            loading={ loading }
+          <CartForm
+            itemInStorage={
+              localStorage.getItem('cart')
+              && JSON.parse(localStorage.getItem('cart') as string)
+            }
+            quantity={quantity}
+            setQuantity={setQuantity}
+            updateCart={updateCart}
+            deleteItem={deleteItem}
+            loading={loading}
           />
         </div>
       </section>

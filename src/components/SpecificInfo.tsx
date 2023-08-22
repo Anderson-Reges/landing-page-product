@@ -3,7 +3,10 @@ import woman from '../assets/woman.jpeg'
 
 const SpecificInfo: React.FC = () => {
   return (
-    <div className='relative desktop:h-[678px] mobile:h-[50em] tablet:h-[30em]'>
+    <div
+      className='relative desktop:h-[678px] mobile:h-[50em] tablet:h-[30em]'
+      data-testid="specific-info-container"
+    >
       <div
         className='mobile:bg-left desktop:bg-center bg-cover w-full h-full'
         style={{ backgroundImage: `url(${woman})` }}
@@ -13,11 +16,13 @@ const SpecificInfo: React.FC = () => {
           absolute flex flex-col desktop:w-1/2 mobile:w-screen
           desktop:right-10 desktop:top-36 gap-[2em] mobile:px-[3em]
           mobile:pt-[3em] desktop:px-0 desktop:pt-0 laptop:items-end'
+          data-testid="specific-info-info-box"
         >
           <h1
             className='
             desktop:text-5xl desktop:w-[15em] mobile:text-2xl text-background-3
             font-extrabold tablet:text-4xl tablet:w-[15em] laptop:pl-[1em]'
+            data-testid="specific-info-title-box"
           >
             DISCOVER THE TECHNOLOGY AND EXPERIENCE THAT GOES INTO OUR PRODUCTS
           </h1>
@@ -25,6 +30,7 @@ const SpecificInfo: React.FC = () => {
             className='
             flex desktop:flex-row desktop:gap-[9em]
             mobile:gap-[2em] mobile:flex-col tablet:flex-row'
+            data-testid="specific-info-infos"
           >
             <div
               className='

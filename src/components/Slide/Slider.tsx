@@ -48,8 +48,8 @@ const Slider: React.FC = () => {
       }));
     }, 10000);
 
-    const cartStorage = JSON.parse(localStorage.getItem("cart") as string);
-    cartStorage && setItemCart(cartStorage);
+    const cartStorage = localStorage.getItem("cart");
+    cartStorage && setItemCart(JSON.parse(cartStorage));
 
     return () => {
       clearInterval(timer);
@@ -73,6 +73,7 @@ const Slider: React.FC = () => {
         />
       )}
       <button
+        data-testid="slide-button-purchase"
         className="
             absolute desktop:top-[27em] mobile:top-[28em]
             desktop:ml-20 mobile:ml-3 bg-background-1 
