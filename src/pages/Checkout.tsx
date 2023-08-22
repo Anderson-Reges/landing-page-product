@@ -223,15 +223,15 @@ const Checkout: React.FC = () => {
             </thead>
             <tbody>
               <tr className="flex justify-around text-center">
-                <td className="w-[33%]">
+                <td className="w-[33%]" data-testid="name-quantity-cell">
                   {(itemInStorage && itemInStorage.name) +
                     " x " +
                     (itemInStorage && itemInStorage.quantity)}
                 </td>
-                <td className="w-[33%]">
+                <td className="w-[33%]" data-testid="subtotal-cell">
                   ${itemInStorage && itemInStorage.subtotal}
                 </td>
-                <td className="w-[33%]">
+                <td className="w-[33%]" data-testid="total-cell">
                   $
                   {itemInStorage &&
                     itemInStorage.price *
