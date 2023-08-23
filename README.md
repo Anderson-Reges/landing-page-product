@@ -12,7 +12,7 @@
 
 ### Languagens/Frameworks/Ferramentas
 
-[![My Skills With Front-End](https://skillicons.dev/icons?i=js,ts,html,css,tailwind,react,docker)](https://skillicons.dev)
+[![My Skills With Front-End](https://skillicons.dev/icons?i=js,ts,html,css,tailwind,react,docker,jest)](https://skillicons.dev)
 
 ## 💻 Pré-requisitos
 
@@ -49,6 +49,15 @@ Sem o Docker:
 npm start
 ```
 > O servidor do React ira inicializar no [localhost:3000](http://localhost:3000)
+
+## 🧪 Rodando os Testes
+
+Para rodar os testes do projeto, siga estas etapas:
+
+> No terminal do projeto rode o seguinte codigo:
+```
+npm run test
+```
 
 ### ⚠️ Atenção
  * Toda informação da landing-page é meramente ilustrativo, este projeto apenas tem fins de aprimorar o conhecimento do autor.
